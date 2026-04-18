@@ -5,6 +5,11 @@
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> 5aa0f98b-e799-448c-a2dc-cae5d04fa2a4
     - !<own> b3e5d28e-95b1-4e40-b7a4-8348f26edfea
+    - !<own> b6e8fb94-35a2-49a7-9d10-f23e851cbbd9
+    - !<own> 29d66c83-ed77-4367-b5e8-b16fed8ce7ae
+    - !<own> 171e5882-e7f2-420f-9aea-a09b7412fb6f
+    - !<own> ef725efd-6b86-4b93-82bb-0ad9afe7279d
+    - !<own> 5d604171-a793-45fd-a241-58f8633a73e3
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -2148,6 +2153,21 @@
     - !<own> f798877f-3c61-487b-8ddc-31a2b0e719b3
   Components:
     - !<own> 0f65a294-7c0f-416b-877a-3b68d7c5c125
+- !<SceneObject/171e5882-e7f2-420f-9aea-a09b7412fb6f>
+  PrefabRemaps:
+    []
+  Name: Mode_Learn
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 78db7fc2-45db-4612-ac96-653d0aac00d5
 - !<ScriptComponent/1774c7ac-f45e-4ebd-9edb-d61dcad046ba>
   PrefabRemaps:
     []
@@ -2720,6 +2740,22 @@
     - !<own> 298f274e-575f-40f7-a4f3-e4eaeaaecd67
   Components:
     []
+- !<ScriptComponent/1be557b9-d9d7-4cec-a739-3da6c28b10f8>
+  PrefabRemaps:
+    []
+  Name: PracticeMode
+  Enabled: true
+  ScriptAsset: !<reference> 28fadd81-d01b-45b4-87e9-9d2b88e2e50c
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<Image/1c7fe64c-c131-4084-bf5e-dc115aeeaf25>
   PrefabRemaps:
     []
@@ -3795,6 +3831,26 @@
   Components:
     - !<own> 98582156-27bb-4592-a0db-01a876b960b9
     - !<own> 4e15f40c-d4d5-4af6-a070-1bb16cdc117c
+- !<ScriptComponent/28a26188-ce42-445c-9b6a-64ae96416867>
+  PrefabRemaps:
+    []
+  Name: ModeController
+  Enabled: true
+  ScriptAsset: !<reference> e4c99e85-1796-4e70-8158-e04bf29e27ce
+  ScriptInputsDefault:
+    learnMode: true
+    practiceMode: true
+    quizMode: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      learnMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      practiceMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      quizMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/28cf3766-599c-4bd5-8505-2a92bf6606ed>
   PrefabRemaps:
     []
@@ -3910,6 +3966,22 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<ScriptComponent/29779d74-c678-49ff-a07c-7f60774d3fbd>
+  PrefabRemaps:
+    []
+  Name: TestSwitcher
+  Enabled: true
+  ScriptAsset: !<reference> 465a5e06-c6a6-45c1-815b-d07217251121
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/298f274e-575f-40f7-a4f3-e4eaeaaecd67>
   PrefabRemaps:
     []
@@ -3925,6 +3997,21 @@
     - !<own> c379df8f-498c-4c54-a558-bb0a021b9dad
   Components:
     []
+- !<SceneObject/29d66c83-ed77-4367-b5e8-b16fed8ce7ae>
+  PrefabRemaps:
+    []
+  Name: TestSwitcher
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 29779d74-c678-49ff-a07c-7f60774d3fbd
 - !<ScriptComponent/29fd4f84-bc44-4bc8-aa4f-a1063ddee17c>
   PrefabRemaps:
     []
@@ -4467,6 +4554,22 @@
   Components:
     - !<own> a9371595-4523-4107-aec6-6fe6184025c4
     - !<own> 5de7ab3d-a295-4a3a-ad14-bab24afc5d7b
+- !<ScriptComponent/2eaf642a-7f00-4d9f-bd59-fa80fac172d9>
+  PrefabRemaps:
+    []
+  Name: Mode_Quiz
+  Enabled: true
+  ScriptAsset: !<reference> 8a2ca450-7ae2-47e8-b432-464916948bc6
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/2f5d6ba1-a828-40bf-90a3-535be36a22ad>
   PrefabRemaps:
     []
@@ -8978,6 +9081,21 @@
     []
   Components:
     - !<own> 7855d6a6-e562-453a-ba66-12f3174b9829
+- !<SceneObject/5d604171-a793-45fd-a241-58f8633a73e3>
+  PrefabRemaps:
+    []
+  Name: Mode_Quiz
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2eaf642a-7f00-4d9f-bd59-fa80fac172d9
 - !<ScriptComponent/5d86e6c1-5fcf-4e04-a5b8-4202808f4745>
   PrefabRemaps:
     []
@@ -11234,6 +11352,22 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<ScriptComponent/78db7fc2-45db-4612-ac96-653d0aac00d5>
+  PrefabRemaps:
+    []
+  Name: LearnMode
+  Enabled: true
+  ScriptAsset: !<reference> 89c23b32-9cee-4337-969b-cf104a63ad93
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<AudioComponent/7a995f85-74a7-4821-912b-f5c7daed8888>
   PrefabRemaps:
     []
@@ -17797,6 +17931,21 @@
     - !<own> 805bb70d-0e93-48e5-a665-76bd8c8928ce
   Components:
     []
+- !<SceneObject/b6e8fb94-35a2-49a7-9d10-f23e851cbbd9>
+  PrefabRemaps:
+    []
+  Name: ModeController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 28a26188-ce42-445c-9b6a-64ae96416867
 - !<SceneObject/b74ff32e-5135-4266-b883-71d0f54a6200>
   PrefabRemaps:
     []
@@ -23316,6 +23465,21 @@
     - !<own> c5f1f0e9-6707-4a13-9453-fbf92b4eba12
   Components:
     []
+- !<SceneObject/ef725efd-6b86-4b93-82bb-0ad9afe7279d>
+  PrefabRemaps:
+    []
+  Name: Mode_Practice
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1be557b9-d9d7-4cec-a739-3da6c28b10f8
 - !<Image/efe972c9-d9d8-4a53-a052-708a0ee6ab6b>
   PrefabRemaps:
     []
