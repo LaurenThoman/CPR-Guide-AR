@@ -8,7 +8,7 @@
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   DepthWrite: true
-  DepthTest: true
+  DepthTest: false
   DepthFunction: LessEqual
   TwoSided: false
   ColorMask: {x: true, y: true, z: true, w: true}
@@ -37,7 +37,7 @@
     baseTex:
       typeIdx: 9
       value:
-        id: 5675bd24-cbc6-4fbc-9d8b-93c246a3af43
+        id: 44d2cd0b-df01-4c8f-ac28-fc1012c7d029
         sampler:
           filteringMode: Trilinear
           wrapModeU: Repeat
