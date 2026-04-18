@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/894cea13-6404-4d2d-bc76-39d7eb4337ba>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 0f5bb457-e00d-4ce7-bf73-5f8fb03158e9
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 0f5bb457-e00d-4ce7-bf73-5f8fb03158e9
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 326c7a76-a25f-48ae-8935-7cf960093e44
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/326c7a76-a25f-48ae-8935-7cf960093e44>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0dca6d82-2a13-4543-85de-7620d24a275f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    clipBpmTooHigh: false
+    clipBpmTooLow: false
+    clipHandsNotCentered: false
+    clipTooDeep: false
+    clipTooShallow: false
+    feedbackAudio: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - feedbackAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      clipBpmTooHigh: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      clipBpmTooLow: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      clipTooShallow: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      clipTooDeep: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      clipHandsNotCentered: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

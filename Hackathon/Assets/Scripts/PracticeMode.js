@@ -8,6 +8,20 @@ var count = 0;
 var timestamps = [];
 var isActive = false;
 
+function safeAudioStop(ac) {
+    if (!ac) {
+        return;
+    }
+    if (!ac.isEnabledInHierarchy) {
+        return;
+    }
+    try {
+        ac.stop(false);
+    } catch (e) {
+        // no-op
+    }
+}
+
 function start() {
     count = 0;
     timestamps = [];
@@ -15,8 +29,23 @@ function start() {
     print("Practice started");
 
     if (script.cprBeatAudio) {
-        script.cprBeatAudio.stop(false);
-        script.cprBeatAudio.play(-1);
+        var startBeat = script.createEvent("DelayedCallbackEvent");
+        startBeat.bind(function() {
+            if (!script.cprBeatAudio) {
+                return;
+            }
+            try {
+                safeAudioStop(script.cprBeatAudio);
+                script.cprBeatAudio.volume = 0.175;
+                script.cprBeatAudio.play(-1);
+                print("PracticeMode: cprBeatAudio playing");
+            } catch (e) {
+                print("PracticeMode: cprBeatAudio.play failed — assign an Audio Track on the component? " + e);
+            }
+        });
+        startBeat.reset(0.01);
+    } else {
+        print("PracticeMode: cprBeatAudio not assigned in Inspector");
     }
 
     if (global.PracticeMode.onCountUpdated) {
@@ -28,9 +57,7 @@ function stop() {
     isActive = false;
     print("Practice stopped");
 
-    if (script.cprBeatAudio) {
-        script.cprBeatAudio.stop(false);
-    }
+    safeAudioStop(script.cprBeatAudio);
 }
 
 // Person 2 calls this when they detect a compression
