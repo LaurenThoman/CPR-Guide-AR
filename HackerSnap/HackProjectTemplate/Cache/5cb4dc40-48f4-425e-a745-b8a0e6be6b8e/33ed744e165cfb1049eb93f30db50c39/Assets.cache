@@ -1,0 +1,13 @@
+- !<AssetCache>
+  AssetFiles:
+    8162e354-826a-4bd2-a5f9-ba55d6ba2503: 5cb4dc40-48f4-425e-a745-b8a0e6be6b8e/33ed744e165cfb1049eb93f30db50c39/Data/Dog.png
+  Assets:
+    - !<FileTexture/8162e354-826a-4bd2-a5f9-ba55d6ba2503>
+      PackagePath: ""
+      FileInfo: !<FileTextureInfo>
+        Width: 1376
+        Height: 768
+  SourceHash: 33ed744e165cfb1049eb93f30db50c39
+  FileHash: 4494772459d1bb3e9bcfab2b093c5adf
+  NativePackageItems:
+    []
