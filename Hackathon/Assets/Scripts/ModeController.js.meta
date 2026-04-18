@@ -28,6 +28,7 @@
   ScriptInputsHidden:
     learnButton: false
     learnMode: false
+    modeSwitcher: false
     practiceButton: false
     practiceMode: false
     quizButton: false
@@ -44,9 +45,10 @@
     - learnMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       practiceMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       quizMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      learnButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
-      practiceButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
-      quizButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      modeSwitcher: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      learnButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      practiceButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      quizButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

@@ -1,57 +1,56 @@
 // LearnMode.js
-var steps = [
-    "Check the scene — is it safe?",
-    "Call 911 or tell someone to call",
-    "Tilt head back, lift chin",
-    "Give 30 chest compressions",
-    "Give 2 rescue breaths",
-    "Repeat until help arrives"
-];
+// @input SceneObject panel1
+// @input SceneObject panel2
+// @input SceneObject panel3
+// @input SceneObject panel4
+// @input SceneObject panel5
+// @input SceneObject panel6
 
+var panels = [];
 var currentStep = 0;
 
 function goToStep(index) {
-    currentStep = Math.max(0, Math.min(index, steps.length - 1));
-    
-    // Person 3 binds to this to update their UI text
-    if (global.LearnMode.onStepChanged) {
-        global.LearnMode.onStepChanged(currentStep, steps[currentStep]);
+    currentStep = Math.max(0, Math.min(index, panels.length - 1));
+    for (var i = 0; i < panels.length; i++) {
+        if (panels[i]) panels[i].enabled = (i === currentStep);
     }
-    print("Learn step " + currentStep + ": " + steps[currentStep]);
+    print("LearnMode: showing step " + (currentStep + 1));
 }
 
-function next() {
-    if (currentStep < steps.length - 1) {
-        goToStep(currentStep + 1);
-    } else {
-        // Last step — signal that Learn is complete
-        if (global.LearnMode.onLearnComplete) {
-            global.LearnMode.onLearnComplete();
-        }
-        print("Learn complete — ready for Practice");
+function hideAllPanels() {
+    for (var i = 0; i < panels.length; i++) {
+        if (panels[i]) panels[i].enabled = false;
     }
-}
-
-function back() {
-    goToStep(currentStep - 1);
-}
-
-function reset() {
-    goToStep(0);
 }
 
 global.LearnMode = {
-    next: next,
-    back: back,
-    reset: reset,
-    getStep: function() { return currentStep; },
-    getTotalSteps: function() { return steps.length; },
-    
-    // Person 3 overwrites these to connect their UI
-    onStepChanged: null,
-    onLearnComplete: null
+    next: function() {
+        if (currentStep < panels.length - 1) {
+            goToStep(currentStep + 1);
+        } else {
+            print("LearnMode: complete — returning to mode select");
+            hideAllPanels();
+            currentStep = 0;
+            if (global.ModeController) global.ModeController.returnToModeSelect();
+        }
+    },
+    back: function() {
+        if (currentStep > 0) {
+            goToStep(currentStep - 1);
+        } else {
+            print("LearnMode: back from step 1 — returning to mode select");
+            hideAllPanels();
+            if (global.ModeController) global.ModeController.returnToModeSelect();
+        }
+    },
+    repeat: function() {
+        print("STUB: repeat audio for step " + (currentStep + 1));
+    },
+    getStep: function() { return currentStep; }
 };
 
-// Initialize
 var onEnabled = script.createEvent("OnEnableEvent");
-onEnabled.bind(function() { reset(); });
+onEnabled.bind(function() {
+    panels = [script.panel1, script.panel2, script.panel3, script.panel4, script.panel5, script.panel6];
+    goToStep(0);
+});

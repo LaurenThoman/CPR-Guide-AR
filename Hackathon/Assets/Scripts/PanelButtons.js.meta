@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/77afa39b-1525-42ca-9b18-b77725fce2dd>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 3caf5378-440d-4ef4-b7f0-756a1baf8cb6
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 3caf5378-440d-4ef4-b7f0-756a1baf8cb6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 9c21d2fa-4192-4dbc-a10e-b0b61f5a829a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/9c21d2fa-4192-4dbc-a10e-b0b61f5a829a>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 278e9e90-56cb-4564-87ce-0b40b9c34534
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    backButton: false
+    nextButton: false
+    repeatButton: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - backButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      nextButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      repeatButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

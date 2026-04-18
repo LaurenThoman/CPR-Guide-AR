@@ -26,7 +26,12 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    panel1: false
+    panel2: false
+    panel3: false
+    panel4: false
+    panel5: false
+    panel6: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,8 +41,12 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - panel1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel4: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel5: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panel6: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
