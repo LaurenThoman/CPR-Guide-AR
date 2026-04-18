@@ -22,11 +22,12 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: 8d6534a7-2842-4869-872e-f51487e3b7de
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    bodyEnvironment: false
+    enableLogging: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,10 +37,13 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - bodyEnvironment: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      enableLogging: false
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F87171;\">CPRHandDetection — compression detection & BPM</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input AssignableType bodyEnvironment {"hint":"The CPRBodyEnvironment script component on the scene"}'
+    - // @input bool enableLogging

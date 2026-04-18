@@ -22,11 +22,12 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: 61e9a2fb-4c9f-4d86-8a61-c9f32a4a6f9a
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    bodyEnvironment: false
+    debugText: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,10 +37,11 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      bodyEnvironment: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @input Component.Text debugText {"hint":"Text component to write debug info into"}'
+    - '// @input AssignableType bodyEnvironment {"hint":"Optional: body environment to show chest position"}'
