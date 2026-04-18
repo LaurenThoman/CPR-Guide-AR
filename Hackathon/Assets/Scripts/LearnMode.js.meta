@@ -26,12 +26,19 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    learnAudio: false
     panel1: false
     panel2: false
     panel3: false
     panel4: false
     panel5: false
     panel6: false
+    step1Audio: false
+    step2Audio: false
+    step3Audio: false
+    step4Audio: false
+    step5Audio: false
+    step6Audio: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -47,6 +54,13 @@
       panel4: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       panel5: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       panel6: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      learnAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      step1Audio: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      step2Audio: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      step3Audio: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      step4Audio: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      step5Audio: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      step6Audio: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
