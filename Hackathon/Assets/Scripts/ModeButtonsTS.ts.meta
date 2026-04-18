@@ -22,11 +22,13 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: bb0bdb02-6cc6-4e58-ab75-731d626357a9
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    learnButton: false
+    practiceButton: false
+    quizButton: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,10 +38,13 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - learnButton: !<reference.InteractionComponent> 00000000-0000-0000-0000-000000000000
+      practiceButton: !<reference.InteractionComponent> 00000000-0000-0000-0000-000000000000
+      quizButton: !<reference.InteractionComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - // @input Component.InteractionComponent learnButton
+    - // @input Component.InteractionComponent practiceButton
+    - // @input Component.InteractionComponent quizButton

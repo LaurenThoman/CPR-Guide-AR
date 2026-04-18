@@ -1,4 +1,5 @@
 // PracticeMode.js
+// @input Component.AudioComponent cprBeatAudio {"hint":"Assign an Audio Component with your CPR metronome track"}
 var TARGET_COMPRESSIONS = 30;
 var TARGET_RATE_MIN = 100; // per minute
 var TARGET_RATE_MAX = 120;
@@ -13,6 +14,11 @@ function start() {
     isActive = true;
     print("Practice started");
 
+    if (script.cprBeatAudio) {
+        script.cprBeatAudio.stop(false);
+        script.cprBeatAudio.play(-1);
+    }
+
     if (global.PracticeMode.onCountUpdated) {
         global.PracticeMode.onCountUpdated(count, TARGET_COMPRESSIONS);
     }
@@ -21,6 +27,10 @@ function start() {
 function stop() {
     isActive = false;
     print("Practice stopped");
+
+    if (script.cprBeatAudio) {
+        script.cprBeatAudio.stop(false);
+    }
 }
 
 // Person 2 calls this when they detect a compression
