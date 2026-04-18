@@ -10,11 +10,15 @@ var panels = [];
 var currentStep = 0;
 
 function goToStep(index) {
+    if (panels.length === 0) {
+        print("LearnMode: no panels bound");
+        return;
+    }
     currentStep = Math.max(0, Math.min(index, panels.length - 1));
     for (var i = 0; i < panels.length; i++) {
         if (panels[i]) panels[i].enabled = (i === currentStep);
     }
-    print("LearnMode: showing step " + (currentStep + 1));
+    print("LearnMode: showing step " + (currentStep + 1) + " of " + panels.length);
 }
 
 function hideAllPanels() {
@@ -23,34 +27,44 @@ function hideAllPanels() {
     }
 }
 
+function exitToModeSelect(reason) {
+    print("LearnMode: " + reason + " — returning to mode select");
+    hideAllPanels();
+    currentStep = 0;
+    if (global.ModeController) global.ModeController.returnToModeSelect();
+}
+
 global.LearnMode = {
     next: function() {
         if (currentStep < panels.length - 1) {
             goToStep(currentStep + 1);
         } else {
-            print("LearnMode: complete — returning to mode select");
-            hideAllPanels();
-            currentStep = 0;
-            if (global.ModeController) global.ModeController.returnToModeSelect();
+            exitToModeSelect("complete");
         }
     },
     back: function() {
         if (currentStep > 0) {
             goToStep(currentStep - 1);
         } else {
-            print("LearnMode: back from step 1 — returning to mode select");
-            hideAllPanels();
-            if (global.ModeController) global.ModeController.returnToModeSelect();
+            exitToModeSelect("back from step 1");
         }
     },
     repeat: function() {
         print("STUB: repeat audio for step " + (currentStep + 1));
     },
-    getStep: function() { return currentStep; }
+    getStep: function() { return currentStep; },
+    getTotalSteps: function() { return panels.length; }
 };
 
 var onEnabled = script.createEvent("OnEnableEvent");
 onEnabled.bind(function() {
     panels = [script.panel1, script.panel2, script.panel3, script.panel4, script.panel5, script.panel6];
     goToStep(0);
+});
+
+var onDisabled = script.createEvent("OnDisableEvent");
+onDisabled.bind(function() {
+    hideAllPanels();
+    currentStep = 0;
+    print("LearnMode: disabled — all panels closed");
 });

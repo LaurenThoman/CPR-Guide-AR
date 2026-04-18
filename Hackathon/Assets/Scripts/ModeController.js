@@ -6,9 +6,20 @@
 // @input SceneObject learnButton
 // @input SceneObject practiceButton
 // @input SceneObject quizButton
+// @input SceneObject backButton
+// @input SceneObject backButtonObject {"hint":"Optional wrapper to show/hide. Defaults to backButton."}
 
 var currentMode = "";
 var bound = false;
+
+function getBackObj() {
+    return script.backButtonObject || script.backButton;
+}
+
+function setBackVisible(visible) {
+    var b = getBackObj();
+    if (b) b.enabled = visible;
+}
 
 function bindButton(obj, mode) {
     if (!obj) { print("ModeController: missing button for " + mode); return; }
@@ -17,7 +28,7 @@ function bindButton(obj, mode) {
     for (var i = 0; i < comps.length; i++) {
         var cb = comps[i].onStateChanged;
         if (cb && typeof cb.add === "function") {
-            var wasPressed = false; // per-button state tracker
+            var wasPressed = false;
             cb.add(function(capturedMode) {
                 return function(state) {
                     var isPressed = (state === "triggered" || state === "pinched" || state === 2);
@@ -35,6 +46,29 @@ function bindButton(obj, mode) {
     print("ModeController: no onStateChanged found on " + obj.name);
 }
 
+function bindBackButton(obj) {
+    if (!obj) { print("ModeController: missing back button"); return; }
+    var comps = obj.getComponents("Component.ScriptComponent");
+
+    for (var i = 0; i < comps.length; i++) {
+        var cb = comps[i].onStateChanged;
+        if (cb && typeof cb.add === "function") {
+            var wasPressed = false;
+            cb.add(function(state) {
+                var isPressed = (state === "triggered" || state === "pinched" || state === 2);
+                if (isPressed && !wasPressed) {
+                    print("BUTTON PRESSED: back");
+                    returnToModeSelect();
+                }
+                wasPressed = isPressed;
+            });
+            print("ModeController: bound back");
+            return;
+        }
+    }
+    print("ModeController: no onStateChanged found on " + obj.name);
+}
+
 function switchMode(mode) {
     if (mode === currentMode) return;
     currentMode = mode;
@@ -43,6 +77,8 @@ function switchMode(mode) {
     script.learnMode.enabled     = (mode === "learn");
     script.practiceMode.enabled  = (mode === "practice");
     script.quizMode.enabled      = (mode === "quiz");
+
+    setBackVisible(true);
 
     print("Mode switched to: " + mode);
     global.ModeController.onModeChanged(mode);
@@ -54,6 +90,9 @@ function returnToModeSelect() {
     script.learnMode.enabled     = false;
     script.practiceMode.enabled  = false;
     script.quizMode.enabled      = false;
+
+    setBackVisible(false);
+
     print("Returned to mode select");
 }
 
@@ -86,8 +125,10 @@ startEvent.bind(function() {
     script.learnMode.enabled     = false;
     script.practiceMode.enabled  = false;
     script.quizMode.enabled      = false;
+    setBackVisible(false);
 
     bindButton(script.learnButton,    "learn");
     bindButton(script.practiceButton, "practice");
     bindButton(script.quizButton,     "quiz");
+    bindBackButton(script.backButton);
 });

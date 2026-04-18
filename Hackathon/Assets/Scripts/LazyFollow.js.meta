@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/bf20a4df-1b86-400c-be4f-d9959ef32e44>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 1c75b084-f8e0-49ab-b071-e9acb22599aa
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 1c75b084-f8e0-49ab-b071-e9acb22599aa
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> c0cce72b-3721-4c2d-a0b7-da9e48ae9a4b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/c0cce72b-3721-4c2d-a0b7-da9e48ae9a4b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: ceded884-f3b7-4a1c-8795-d9bf704d0c41
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    camera: false
+    deadZoneAngle: false
+    faceCamera: false
+    offset: false
+    smoothing: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - camera: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      offset: !<Vec3> {x: 0.200000, y: -0.150000, z: -0.600000}
+      deadZoneAngle: !<float> 20.000000
+      smoothing: 0.060000
+      faceCamera: true
+  ScriptTypes:
+    -
+      {}
