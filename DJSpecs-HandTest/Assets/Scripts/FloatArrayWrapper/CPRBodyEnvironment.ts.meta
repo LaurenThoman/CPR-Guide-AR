@@ -22,11 +22,14 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: e99a6dad-1c9d-4adf-8555-a147c4330d1f
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    chestAnchor: false
+    enableLogging: false
+    showChestMarker: false
+    trackingObject: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,10 +39,17 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - trackingObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      chestAnchor: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      showChestMarker: true
+      enableLogging: false
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #34D399;\">CPRBodyEnvironment — chest anchor from body tracking</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input SceneObject trackingObject {"hint":"SceneObject that has the ObjectTracking3D component attached. Leave empty to use chestAnchor as a static target (e.g. a Sphere)."}'
+    - '// @input SceneObject chestAnchor {"hint":"Chest anchor SceneObject. If trackingObject is set, this is attached to Spine2. If not, its world position is used directly (e.g. drop in a Sphere here to practice on a static target)."}'
+    - '// @input bool showChestMarker = true {"hint":"Optional: visual mesh on the chest anchor for debug viewing"}'
+    - // @input bool enableLogging

@@ -31,7 +31,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 14e82ef5-c646-435b-97c5-7c48b8da83e2
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
     - !<own> e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1
@@ -572,11 +572,26 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/14e82ef5-c646-435b-97c5-7c48b8da83e2>
+  PrefabRemaps:
+    []
+  Name: Effects
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<SceneObject/1558ebc1-e1c0-4eca-8d27-1a3a704f924e>
   PrefabRemaps:
     []
   Name: Deck C
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -627,7 +642,7 @@
   PrefabRemaps:
     []
   Name: GUIDE_ReadAndDisable
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000004, z: -100.000000}
@@ -902,6 +917,21 @@
     []
   Components:
     - !<own> 575c6ba7-a9a3-434a-aa15-3656205306a8
+- !<SceneObject/1db9cc1d-f8c6-41a3-9308-f7b6fcfddf62>
+  PrefabRemaps:
+    []
+  Name: Sphere
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f692dbec-097e-433b-9dad-0f34380430bc
 - !<SceneObject/1e09d7ed-8a13-4db1-a6ea-a40f366b6967>
   PrefabRemaps:
     []
@@ -1256,7 +1286,7 @@
   PrefabRemaps:
     []
   Name: DJController
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: -50.000000, z: -60.000000}
@@ -3277,7 +3307,7 @@
   PrefabRemaps:
     []
   Name: Deck B
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -3512,6 +3542,21 @@
     - !<own> b9527455-3058-4cc8-9255-783169419f0d
   Components:
     []
+- !<SceneObject/75028b68-07d6-44db-96f8-bfcfa89f8958>
+  PrefabRemaps:
+    []
+  Name: BodyTracking
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> b3e32809-5605-4fdb-986b-d21773b9ac7d
 - !<SceneObject/759be04b-6a70-4cee-840b-0616fb2e5158>
   PrefabRemaps:
     []
@@ -5260,6 +5305,61 @@
     - !<own> e1c330dd-cf96-4076-86ec-8b3625cb7a61
   Components:
     []
+- !<ObjectTracking3D/b3e32809-5605-4fdb-986b-d21773b9ac7d>
+  PrefabRemaps:
+    []
+  Name: Object Tracking 3D
+  Enabled: true
+  ObjectIndex: 0
+  TrackingMode: ProportionsAndPose
+  TrackPosition: true
+  TrackingAsset: !<reference> 743ad261-507f-4679-9924-059ec5129d37
+  AttachmentLabels:
+    - Hips
+    - Spine
+    - Spine1
+    - Spine2
+    - Neck
+    - Head
+    - LeftShoulder
+    - LeftArm
+    - LeftForeArm
+    - LeftHand
+    - RightShoulder
+    - RightArm
+    - RightForeArm
+    - RightHand
+    - LeftUpLeg
+    - LeftLeg
+    - LeftFoot
+    - LeftToeBase
+    - RightUpLeg
+    - RightLeg
+    - RightFoot
+    - RightToeBase
+  AttachedObjects:
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
+    - !<reference> 00000000-0000-0000-0000-000000000000
 - !<ColliderComponent/b3ebf063-ad2f-450b-8cba-9415b96452b2>
   PrefabRemaps:
     []
@@ -5516,7 +5616,7 @@
   PrefabRemaps:
     []
   Name: Deck A
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -5796,6 +5896,197 @@
     - !<own> d3340ef4-90e8-49c1-aeb6-4194ed9937f9
   Components:
     []
+- !<SceneObject/c9200001-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: CPR_BodyTest
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> c9200002-0000-0000-0000-000000000001
+    - !<own> c9200003-0000-0000-0000-000000000001
+    - !<own> 75028b68-07d6-44db-96f8-bfcfa89f8958
+  Components:
+    - !<own> c9200005-0000-0000-0000-000000000001
+    - !<own> c9200006-0000-0000-0000-000000000001
+- !<SceneObject/c9200002-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: ChestAnchor
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1db9cc1d-f8c6-41a3-9308-f7b6fcfddf62
+  Components:
+    []
+- !<SceneObject/c9200003-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: CPR_DebugHUD
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c9200007-0000-0000-0000-000000000001
+    - !<own> c9200008-0000-0000-0000-000000000001
+- !<ScriptComponent/c9200005-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: CPRBodyEnvironment
+  Enabled: true
+  ScriptAsset: !<reference> 09693bcc-89b3-4c1d-b97c-177832c068da
+  ScriptInputsDefault:
+    showChestMarker: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      trackingObject: !<reference.SceneObject> 75028b68-07d6-44db-96f8-bfcfa89f8958
+      chestAnchor: !<reference.SceneObject> c9200002-0000-0000-0000-000000000001
+      showChestMarker: true
+      enableLogging: true
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/c9200006-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: CPRHandDetection
+  Enabled: true
+  ScriptAsset: !<reference> fca576e1-86c0-4756-997f-8663af37720f
+  ScriptInputsDefault:
+    enableLogging: true
+    debugPositions: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      bodyEnvironment: !<MappingBased.AssignableType> c9200005-0000-0000-0000-000000000001
+      chestTargetOverride: !<reference.SceneObject> 1db9cc1d-f8c6-41a3-9308-f7b6fcfddf62
+      xzRadiusCm: !<float> 40.000000
+      yHoverMaxCm: !<float> 40.000000
+      yHoverMinCm: !<float> -20.000000
+      enableLogging: true
+      debugPositions: true
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/c9200007-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: CPRDebugHUD
+  Enabled: true
+  ScriptAsset: !<reference> fb6496d0-f7bf-4479-af66-f6008e504e4b
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      debugText: !<reference.Text> c9200008-0000-0000-0000-000000000001
+      bodyEnvironment: !<MappingBased.AssignableType> c9200005-0000-0000-0000-000000000001
+  ScriptTypes:
+    "":
+      {}
+- !<Text/c9200008-0000-0000-0000-000000000001>
+  PrefabRemaps:
+    []
+  Name: CPR_DebugText
+  Enabled: true
+  RenderOrder: 999
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: |-
+    BPM: 0  Depth: tooShallow
+    Centered: false  Compressions: 0
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 50
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -15.000000
+    bottom: -3.000000
+    right: 15.000000
+    top: 3.000000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Wrap
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 0.200000, y: 1.000000, z: 0.400000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<SceneObject/c938c420-b45c-412f-8b39-8750a06d6ecd>
   PrefabRemaps:
     []
@@ -7088,6 +7379,26 @@
       BlendMode: Default
       ScaleMode: Multiply
       PlaybackMode: Loop
+- !<RenderMeshVisual/f692dbec-097e-433b-9dad-0f34380430bc>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d1b38053-ca88-4eae-b581-301d1191ecc0
+  Mesh: !<reference> 42eb4312-ffaa-4299-a234-724048837af2
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<ScriptComponent/f6ccd33c-c731-432c-b57b-d3917539261b>
   PrefabRemaps:
     []
@@ -7290,186 +7601,3 @@
     []
   Components:
     - !<own> e1503483-cd52-438f-b7cd-9119dec0bab3
-# ── CPR Body Test Environment ──────────────────────────────────────────────
-- !<SceneObject/c9200001-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: CPR_BodyTest
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> c9200002-0000-0000-0000-000000000001
-    - !<own> c9200003-0000-0000-0000-000000000001
-    - !<own> c9200004-0000-0000-0000-000000000001
-  Components:
-    - !<own> c9200005-0000-0000-0000-000000000001
-    - !<own> c9200006-0000-0000-0000-000000000001
-# ChestAnchor — will be attached to Spine2 by CPRBodyEnvironment at runtime
-- !<SceneObject/c9200002-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: ChestAnchor
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
-# CPR_DebugHUD — floating world-space text in front of user
-- !<SceneObject/c9200003-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: CPR_DebugHUD
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 15.000000, z: -60.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> c9200007-0000-0000-0000-000000000001
-    - !<own> c9200008-0000-0000-0000-000000000001
-# BodyTracking — empty placeholder; add ObjectTracking3D component via Lens Studio UI
-- !<SceneObject/c9200004-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: BodyTracking
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
-# CPRBodyEnvironment script component
-- !<ScriptComponent/c9200005-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: CPRBodyEnvironment
-  Enabled: true
-  ScriptAsset: !<reference> 09693bcc-89b3-4c1d-b97c-177832c068da
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      trackingObject: !<reference.SceneObject> c9200004-0000-0000-0000-000000000001
-      chestAnchor: !<reference.SceneObject> c9200002-0000-0000-0000-000000000001
-      showChestMarker: true
-      enableLogging: true
-  ScriptTypes:
-    "":
-      {}
-# CPRHandDetection script component
-- !<ScriptComponent/c9200006-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: CPRHandDetection
-  Enabled: true
-  ScriptAsset: !<reference> fca576e1-86c0-4756-997f-8663af37720f
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      bodyEnvironment: !<reference.ScriptComponent> c9200005-0000-0000-0000-000000000001
-      enableLogging: true
-  ScriptTypes:
-    "":
-      {}
-# CPRDebugHUD script component
-- !<ScriptComponent/c9200007-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: CPRDebugHUD
-  Enabled: true
-  ScriptAsset: !<reference> fb6496d0-f7bf-4479-af66-f6008e504e4b
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      debugText: !<reference.Component> c9200008-0000-0000-0000-000000000001
-      bodyEnvironment: !<reference.ScriptComponent> c9200005-0000-0000-0000-000000000001
-  ScriptTypes:
-    "":
-      {}
-# Debug Text component
-- !<Text/c9200008-0000-0000-0000-000000000001>
-  PrefabRemaps:
-    []
-  Name: CPR_DebugText
-  Enabled: true
-  RenderOrder: 999
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Text: "BPM: 0  Depth: tooShallow\nCentered: false  Compressions: 0"
-  Editable: false
-  ShowEditingPreview: true
-  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
-  SizeToFit: false
-  FontSize: 50
-  Font: !<reference> 00000000-0000-0000-0000-000000000000
-  LayoutRect:
-    left: -15.000000
-    bottom: -3.000000
-    right: 15.000000
-    top: 3.000000
-  OverflowVertical: Overflow
-  OverflowHorizontal: Wrap
-  Fill: !<TextFill>
-    Mode: Solid
-    Color: {x: 0.200000, y: 1.000000, z: 0.400000, w: 1.000000}
-    Texture: !<reference> 00000000-0000-0000-0000-000000000000
-    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    TileCount: 5.000000
-    TileZone: Rect
-    TextureStretch: FitWidth
-  BlendMode: PremultipliedAlpha
-  Outline: !<OutlineSettings>
-    Enabled: false
-    Fill: !<TextFill>
-      Mode: Solid
-      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
-      Texture: !<reference> 00000000-0000-0000-0000-000000000000
-      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-      TileCount: 5.000000
-      TileZone: Rect
-      TextureStretch: FitWidth
-    Size: 0.250000
-  Dropshadow: !<DropshadowSettings>
-    Enabled: false
-    Fill: !<TextFill>
-      Mode: Solid
-      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
-      Texture: !<reference> 00000000-0000-0000-0000-000000000000
-      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-      TileCount: 5.000000
-      TileZone: Rect
-      TextureStretch: FitWidth
-    OffsetX: 0.250000
-    OffsetY: 0.250000

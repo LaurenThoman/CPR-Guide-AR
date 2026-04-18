@@ -1,8 +1,8 @@
-- !<AssetImportMetadata/312d69d0-44e7-4e1e-907c-d84afe84ed59>
+- !<AssetImportMetadata/9a48871b-30ba-4741-a03e-260ea44783a8>
   ImportedAssetIds:
-    Texture: !<reference> 76028861-a25d-4c84-a4d4-c9c9ce429d78
-  ImporterName: FileTextureImporter
-  PrimaryAsset: !<reference> 76028861-a25d-4c84-a4d4-c9c9ce429d78
+    Texture: !<reference> b2f21e76-923c-4536-91a9-91708c6e087c
+  ImporterName: ScreenTextureImporter
+  PrimaryAsset: !<reference> b2f21e76-923c-4536-91a9-91708c6e087c
   PackageType: NotAPackage
   LegacyPackagePolicy: ~
   ExtraData:

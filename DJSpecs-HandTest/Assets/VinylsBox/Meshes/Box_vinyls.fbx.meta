@@ -1,16 +1,16 @@
 - !<AssetImportMetadata/f8297504-b048-8aab-4d1a-6edce7fee82b>
   ImportedAssetIds:
-    5044a7f8f5321146: !<reference> ba663133-f0b2-45e6-8c92-b120bb09dd7e
-    71e8d81c0b7fcd40: !<reference> 68980b20-859b-4b94-a8cd-8e01fc2fce40
-    7a0dd5cd69df73fa: !<reference> a181ef35-e05e-49f9-9f0d-dcbfe62200cb
-    9f372aab438ff7d7: !<reference> 1eedf01a-4fe8-4f76-aa37-010198878d01
+    43ae4f007cbca4b6: !<reference> 9f0d758a-6544-47c2-95f7-f64378d60e03
+    66780cf3a4dcb2b8: !<reference> beaf33a7-510a-4784-a44d-12b9505279b6
     Meshes/Box_Cover: !<reference> 2f3bdcb0-4533-48f4-ad82-cd8815329af2
     Meshes/Box_main: !<reference> 6fb85934-38d3-4060-8531-bc72cdca0441
     Meshes/Box_vinyls: !<reference> be503042-9a68-4cc1-bf5a-2bf9b8e9a908
     Scene: !<reference> 93eacb39-7d36-41ff-9504-a96455c8764d
-    a854c6965de71ebc: !<reference> d34d9ef4-63b8-42cb-abfb-62cac7c5c2b6
-    aeb9bb7a27404cb8: !<reference> 7ae516f1-8420-44ce-8a9c-3cefabff21a6
-    b45b78ff0f9ebf77: !<reference> 0ebbe9e2-d159-4db1-a382-792d26bc47f7
+    b638a3a9cdafb66e: !<reference> 44d4135c-d98f-451a-a87d-e49ad2636524
+    b92e41e346fd9f57: !<reference> 83a00942-3c85-4af9-adf2-228b546abec1
+    c1d2df6b646f7f10: !<reference> 893ede17-0759-4348-be58-e00f2141be1f
+    cd12a88463cb6b38: !<reference> 3aa6c5d3-4ffb-4d10-9ff5-d49d5e81efeb
+    ce1a15b6512f7417: !<reference> c17fe21a-b905-4c45-80e6-8414dd691a20
   ImporterName: FbxImporter
   PrimaryAsset: !<reference> 93eacb39-7d36-41ff-9504-a96455c8764d
   PackageType: LegacyPackage
@@ -46,7 +46,7 @@
       mesh: None Compression
     Overrides:
       {}
-- !<SceneObject/0ebbe9e2-d159-4db1-5c7d-86d2d943b808>
+- !<SceneObject/3aa6c5d3-4ffb-4d10-600a-2b62a17e1014>
   PrefabRemaps:
     []
   Name: Box_Cover
@@ -54,29 +54,14 @@
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -3.526338, y: 0.284188, z: 3.545180}
-    Rotation: {x: -24.599993, y: 0.000000, z: 0.000000}
+    Rotation: {x: -24.599995, y: 0.000000, z: 0.000000}
     Scale: {x: 7.243500, y: 7.243501, z: 0.165473}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
-    - !<own> d34d9ef4-63b8-42cb-5404-9d35383a3d49
-- !<SceneObject/1eedf01a-4fe8-4f76-55c8-fefe677872fe>
-  PrefabRemaps:
-    []
-  Name: Box_vinyls
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 3.955905, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 68980b20-859b-4b94-5732-71fe03d031bf
-- !<RenderMeshVisual/68980b20-859b-4b94-5732-71fe03d031bf>
+    - !<own> 9f0d758a-6544-47c2-6a08-09bc8729f1fc
+- !<RenderMeshVisual/44d4135c-d98f-451a-5782-1b652d9c9adb>
   PrefabRemaps:
     []
   Name: component_2
@@ -96,7 +81,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<RenderMeshVisual/7ae516f1-8420-44ce-7563-c3105400de59>
+- !<RenderMeshVisual/83a00942-3c85-4af9-520d-dd74ab95413e>
   PrefabRemaps:
     []
   Name: component_1
@@ -116,32 +101,10 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ObjectPrefabAssetData/8ebbbba8-5729-4495-bed4-c85aae8cc943>
-  Prototype: !<ObjectOwner/723dc6a6-8a7e-49ff-bad9-0d147def039a>
-    PackagePath: ""
-    objects:
-      - !<own> a181ef35-e05e-49f9-60f2-234019ddff34
-- !<SceneObject/a181ef35-e05e-49f9-60f2-234019ddff34>
+- !<SceneObject/893ede17-0759-4348-41a7-1ff0debe41e0>
   PrefabRemaps:
     []
   Name: Box_vinyls
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 0ebbe9e2-d159-4db1-5c7d-86d2d943b808
-    - !<own> ba663133-f0b2-45e6-736d-4edf44f62281
-    - !<own> 1eedf01a-4fe8-4f76-55c8-fefe677872fe
-  Components:
-    []
-- !<SceneObject/ba663133-f0b2-45e6-736d-4edf44f62281>
-  PrefabRemaps:
-    []
-  Name: Box_main
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -152,8 +115,13 @@
   Children:
     []
   Components:
-    - !<own> 7ae516f1-8420-44ce-7563-c3105400de59
-- !<RenderMeshVisual/d34d9ef4-63b8-42cb-5404-9d35383a3d49>
+    - !<own> 44d4135c-d98f-451a-5782-1b652d9c9adb
+- !<ObjectPrefabAssetData/8ebbbba8-5729-4495-bed4-c85aae8cc943>
+  Prototype: !<ObjectOwner/723dc6a6-8a7e-49ff-bad9-0d147def039a>
+    PackagePath: ""
+    objects:
+      - !<own> beaf33a7-510a-4784-5bb2-ed46afad8649
+- !<RenderMeshVisual/9f0d758a-6544-47c2-6a08-09bc8729f1fc>
   PrefabRemaps:
     []
   Name: component_0
@@ -173,3 +141,35 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<SceneObject/beaf33a7-510a-4784-5bb2-ed46afad8649>
+  PrefabRemaps:
+    []
+  Name: Box_vinyls
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3aa6c5d3-4ffb-4d10-600a-2b62a17e1014
+    - !<own> c17fe21a-b905-4c45-7f19-7beb2296e5df
+    - !<own> 893ede17-0759-4348-41a7-1ff0debe41e0
+  Components:
+    []
+- !<SceneObject/c17fe21a-b905-4c45-7f19-7beb2296e5df>
+  PrefabRemaps:
+    []
+  Name: Box_main
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 3.955905, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 83a00942-3c85-4af9-520d-dd74ab95413e

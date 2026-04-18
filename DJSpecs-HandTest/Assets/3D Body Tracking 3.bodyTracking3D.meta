@@ -1,8 +1,8 @@
-- !<AssetImportMetadata/312d69d0-44e7-4e1e-907c-d84afe84ed59>
+- !<AssetImportMetadata/252803a5-6358-46af-8b58-e068a2946e93>
   ImportedAssetIds:
-    Texture: !<reference> 76028861-a25d-4c84-a4d4-c9c9ce429d78
-  ImporterName: FileTextureImporter
-  PrimaryAsset: !<reference> 76028861-a25d-4c84-a4d4-c9c9ce429d78
+    BodyTracking3DAsset: !<reference> 743ad261-507f-4679-9924-059ec5129d37
+  ImporterName: BodyTracking3DAssetImporter
+  PrimaryAsset: !<reference> 743ad261-507f-4679-9924-059ec5129d37
   PackageType: NotAPackage
   LegacyPackagePolicy: ~
   ExtraData:

@@ -53,10 +53,8 @@ export class CPRDebugHUD extends BaseScriptComponent {
     }
 
     this.debugText.text =
-      `<color=${bpmColor}>BPM: ${bpm}</color>  ` +
-      `<color=${depthColor}>Depth: ${depth}</color>\n` +
-      `<color=${centeredColor}>Centered: ${centered}</color>  ` +
-      `Compressions: ${this.compressionCount}` +
+      `BPM: ${bpm}  Depth: ${depth}\n` +
+      `Centered: ${centered}  Compressions: ${this.compressionCount}` +
       chestInfo;
   }
 }

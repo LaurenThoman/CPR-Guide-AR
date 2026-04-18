@@ -22,11 +22,17 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: 8d6534a7-2842-4869-872e-f51487e3b7de
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    bodyEnvironment: false
+    chestTargetOverride: false
+    debugPositions: false
+    enableLogging: false
+    xzRadiusCm: false
+    yHoverMaxCm: false
+    yHoverMinCm: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,10 +42,23 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - bodyEnvironment: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      chestTargetOverride: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      xzRadiusCm: !<float> 0.000000
+      yHoverMaxCm: !<float> 0.000000
+      yHoverMinCm: !<float> 0.000000
+      enableLogging: true
+      debugPositions: true
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F87171;\">CPRHandDetection — compression detection & BPM</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input AssignableType bodyEnvironment {"hint":"The CPRBodyEnvironment script component on the scene"}'
+    - '// @input SceneObject chestTargetOverride {"hint":"Optional: drag a SceneObject here (e.g. a Sphere) to use it as the chest target instead of body tracking. When set, takes precedence over bodyEnvironment."}'
+    - "// @input float xzRadiusCm {\"hint\":\"Horizontal radius (cm) around the chest target that counts as 'centered'. Increase this when practicing on a larger sphere/mannequin.\"}"
+    - "// @input float yHoverMaxCm {\"hint\":\"Max cm the hand can hover ABOVE the chest target and still count as 'centered'.\"}"
+    - "// @input float yHoverMinCm {\"hint\":\"Max cm the hand can go BELOW the chest target and still count as 'centered'. Must be large enough to fit a full compression (default -20).\"}"
+    - // @input bool enableLogging
+    - '// @input bool debugPositions {"hint":"Print chest/hand positions once per second while logging is on. Useful for first-time calibration."}'
