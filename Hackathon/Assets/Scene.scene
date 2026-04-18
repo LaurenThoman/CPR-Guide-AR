@@ -1059,6 +1059,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/0cd61a6c-e394-4447-949c-211c44eaac44>
+  PrefabRemaps:
+    []
+  Name: CPR_Beat
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 59a064d2-d5b3-4ed7-9ead-9c4ba3d13251
 - !<SceneObject/0d6b794a-ffc8-44f8-b330-42b3656a0bec>
   PrefabRemaps:
     []
@@ -1437,6 +1452,29 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<ScriptComponent/0faa5a85-c7a3-4c82-be7e-aaa34bf1630d>
+  PrefabRemaps:
+    []
+  Name: CprBeatVisual
+  Enabled: true
+  ScriptAsset: !<reference> f5dc8181-a22c-4b54-88cc-0806f47055e6
+  ScriptInputsDefault:
+    bpm: true
+    pulseScale: true
+    decay: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      target: !<reference.SceneObject> a87c80ca-1a0e-4b05-8fd7-c061d92f0062
+      bpm: !<float> 110.000000
+      syncAudio: !<reference.AudioComponent> 59a064d2-d5b3-4ed7-9ead-9c4ba3d13251
+      beatPhaseOffset: 0.040000
+      pulseScale: 1.140000
+      decay: !<float> 16.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/101e955f-eed0-42e9-9a77-9155aaf9e290>
   PrefabRemaps:
     []
@@ -2749,12 +2787,12 @@
   Enabled: true
   ScriptAsset: !<reference> 28fadd81-d01b-45b4-87e9-9d2b88e2e50c
   ScriptInputsDefault:
-    cprBeatAudio: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      cprBeatAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      cprBeatAudio: !<reference.AudioComponent> 59a064d2-d5b3-4ed7-9ead-9c4ba3d13251
   ScriptTypes:
     "":
       {}
@@ -8443,6 +8481,23 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<AudioComponent/59a064d2-d5b3-4ed7-9ead-9c4ba3d13251>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 6937cc79-5b9f-44a7-a859-7787bdd43ca6
+  EnableAutoplayLoop: true
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/5a2ca1a2-f292-4079-aebb-f491bb9f5bf5>
   PrefabRemaps:
     []
@@ -15699,6 +15754,22 @@
     []
   Components:
     - !<own> 329940fb-34dd-413d-8f14-ed6fa1f135b5
+- !<SceneObject/a87c80ca-1a0e-4b05-8fd7-c061d92f0062>
+  PrefabRemaps:
+    []
+  Name: Indicator
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ff014b67-1e8c-4c5e-bc9b-778888ccce21
+    - !<own> 0faa5a85-c7a3-4c82-be7e-aaa34bf1630d
 - !<SceneObject/a90f9e60-31bb-4dcc-9432-2a71b2bc29c2>
   PrefabRemaps:
     []
@@ -23630,7 +23701,8 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 0cd61a6c-e394-4447-949c-211c44eaac44
+    - !<own> a87c80ca-1a0e-4b05-8fd7-c061d92f0062
   Components:
     - !<own> 1be557b9-d9d7-4cec-a739-3da6c28b10f8
 - !<Image/efe972c9-d9d8-4a53-a052-708a0ee6ab6b>
@@ -24875,6 +24947,26 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<RenderMeshVisual/ff014b67-1e8c-4c5e-bc9b-778888ccce21>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 90a0f03b-a68a-4428-bc36-f670fa056f65
+  Mesh: !<reference> 1b5b2696-074a-4642-b38e-13b4ceca0bec
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<Image/ff71bb12-f46a-4bca-91df-25288c663ac0>
   PrefabRemaps:
     []

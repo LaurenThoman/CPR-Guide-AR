@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/93aaf9e2-1ec1-41b7-89f5-ac9f94fd0773>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> f5dc8181-a22c-4b54-88cc-0806f47055e6
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> f5dc8181-a22c-4b54-88cc-0806f47055e6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 09ae27d9-9a59-4ef8-ad99-fc6b3c5984e1
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/09ae27d9-9a59-4ef8-ad99-fc6b3c5984e1>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 23ca6c03-d432-4664-83c0-4686c63feb34
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    beatPhaseOffset: false
+    bpm: false
+    decay: false
+    pulseScale: false
+    syncAudio: false
+    target: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - target: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      bpm: !<float> 110.000000
+      syncAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      beatPhaseOffset: !<float> 0.000000
+      pulseScale: 1.140000
+      decay: !<float> 16.000000
+  ScriptTypes:
+    -
+      {}
