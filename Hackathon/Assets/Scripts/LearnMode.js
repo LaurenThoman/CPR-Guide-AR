@@ -5,9 +5,60 @@
 // @input SceneObject panel4
 // @input SceneObject panel5
 // @input SceneObject panel6
+// @input Component.AudioComponent learnAudio {"hint":"Audio component used for Learn step narration"}
+// @input Asset.AudioTrackAsset step1Audio
+// @input Asset.AudioTrackAsset step2Audio
+// @input Asset.AudioTrackAsset step3Audio
+// @input Asset.AudioTrackAsset step4Audio
+// @input Asset.AudioTrackAsset step5Audio
+// @input Asset.AudioTrackAsset step6Audio
 
 var panels = [];
+var stepAudios = [];
 var currentStep = 0;
+
+function safeAudioStop(ac) {
+    if (!ac) {
+        return;
+    }
+    if (!ac.isEnabledInHierarchy) {
+        return;
+    }
+    try {
+        ac.stop(false);
+    } catch (e) {
+        // no-op
+    }
+}
+
+function playStepAudio(stepIdx) {
+    if (!script.learnAudio) {
+        return;
+    }
+
+    var track = stepAudios[stepIdx];
+    if (!track) {
+        return;
+    }
+
+    safeAudioStop(script.learnAudio);
+    script.learnAudio.audioTrack = track;
+    script.learnAudio.volume = 1;
+
+    // Delay slightly to avoid edge cases when enabling Learn hierarchy
+    var delayed = script.createEvent("DelayedCallbackEvent");
+    delayed.bind(function() {
+        if (!script.learnAudio) {
+            return;
+        }
+        try {
+            script.learnAudio.play(1);
+        } catch (e) {
+            // no-op
+        }
+    });
+    delayed.reset(0.01);
+}
 
 function goToStep(index) {
     if (panels.length === 0) {
@@ -18,7 +69,8 @@ function goToStep(index) {
     for (var i = 0; i < panels.length; i++) {
         if (panels[i]) panels[i].enabled = (i === currentStep);
     }
-    print("LearnMode: showing step " + (currentStep + 1) + " of " + panels.length);
+    print("LearnMode: showing step " + (currentStep + 1));
+    playStepAudio(currentStep);
 }
 
 function hideAllPanels() {
@@ -50,7 +102,7 @@ global.LearnMode = {
         }
     },
     repeat: function() {
-        print("STUB: repeat audio for step " + (currentStep + 1));
+        playStepAudio(currentStep);
     },
     getStep: function() { return currentStep; },
     getTotalSteps: function() { return panels.length; }
@@ -59,6 +111,7 @@ global.LearnMode = {
 var onEnabled = script.createEvent("OnEnableEvent");
 onEnabled.bind(function() {
     panels = [script.panel1, script.panel2, script.panel3, script.panel4, script.panel5, script.panel6];
+    stepAudios = [script.step1Audio, script.step2Audio, script.step3Audio, script.step4Audio, script.step5Audio, script.step6Audio];
     goToStep(0);
 });
 
