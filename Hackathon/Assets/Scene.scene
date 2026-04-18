@@ -17,8 +17,6 @@
     - !<own> 171e5882-e7f2-420f-9aea-a09b7412fb6f
     - !<own> ef725efd-6b86-4b93-82bb-0ad9afe7279d
     - !<own> 5d604171-a793-45fd-a241-58f8633a73e3
-    - !<own> 2f9fe8e0-3cda-45b4-b271-24931b69976f
-    - !<own> 684ebc1d-b44d-48fc-8eaf-910389cb82fb
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -5601,21 +5599,6 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
-- !<SceneObject/2f9fe8e0-3cda-45b4-b271-24931b69976f>
-  PrefabRemaps:
-    []
-  Name: UI Button
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 9903c048-2d51-4355-9930-8d9643607f34
 - !<SceneObject/2fa6895d-6663-4624-9e74-6b038b982135>
   PrefabRemaps:
     []
@@ -11507,21 +11490,6 @@
     - !<own> ec5cf781-7365-4db2-83df-e3d10556ffd3
   Components:
     []
-- !<SceneObject/684ebc1d-b44d-48fc-8eaf-910389cb82fb>
-  PrefabRemaps:
-    []
-  Name: UI Panel
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f0a941d0-4411-4584-a8bb-9adfe3199a89
 - !<ScriptComponent/68f8eb2d-b9ea-48a5-88d8-d08ad74313d8>
   PrefabRemaps:
     []
@@ -16655,129 +16623,6 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/9903c048-2d51-4355-9930-8d9643607f34>
-  PrefabRemaps:
-    []
-  Name: UI Button
-  Enabled: true
-  ScriptAsset: !<reference> af306e63-01b3-4e35-85a6-c621675f77fb
-  ScriptInputsDefault:
-    interactable: true
-    renderOrderOverride: true
-    text: true
-    useColors: true
-    normalColor: true
-    pressedColor: true
-    disabledColor: true
-    useTextures: true
-    normalTexture: true
-    pressedTexture: true
-    disabledTexture: true
-    editAnimations: true
-    animation: true
-    transformType: true
-    normalAnchorPosition: true
-    pressedAnchorPosition: true
-    disabledAnchorPosition: true
-    normalOffsetPosition: true
-    pressedOffsetPosition: true
-    disabledOffsetPosition: true
-    normalRotation: true
-    pressedRotation: true
-    disabledRotation: true
-    normalScale: true
-    pressedScale: true
-    disabledScale: true
-    sceneObjectWithTweens: true
-    normalTween: true
-    pressedTween: true
-    disabledTween: true
-    editEventCallbacks: true
-    callbackType: true
-    onPressDownBehaviors: true
-    onPressUpBehaviors: true
-    onPressBehaviors: true
-    onPressDownGlobalBehaviors: true
-    onPressUpGlobalBehaviors: true
-    onPressGlobalBehaviors: true
-    customFunctionScript: true
-    onPressDownFunctionNames: true
-    onPressUpFunctionNames: true
-    onPressFunctionNames: true
-    editConnections: true
-    backgroundPrefab: true
-    foregroundPrefab: true
-    textPrefab: true
-    editDebugSettings: true
-    printDebugStatements: true
-    printWarningStatements: true
-    disableTouchEventsInput: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      interactable: true
-      renderOrderOverride: 0
-      text: Button
-      useColors: true
-      normalColor: !<Vec4> {x: 0.999207, y: 0.988861, z: 0.016327, w: 1.000000}
-      pressedColor: !<Vec4> {x: 0.664225, y: 0.664240, z: 0.664225, w: 1.000000}
-      disabledColor: !<Vec4> {x: 0.500000, y: 0.500000, z: 0.500000, w: 0.500000}
-      useTextures: false
-      normalTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      pressedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      disabledTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      editAnimations: false
-      animation: 0
-      transformType: OffsetPosition
-      normalAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
-      pressedAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
-      disabledAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
-      normalOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
-      pressedOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
-      disabledOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
-      normalRotation: !<float> 0.000000
-      pressedRotation: !<float> 0.000000
-      disabledRotation: !<float> 0.000000
-      normalScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
-      pressedScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
-      disabledScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
-      sceneObjectWithTweens: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      normalTween: ""
-      pressedTween: ""
-      disabledTween: ""
-      editEventCallbacks: false
-      callbackType: 0
-      onPressDownBehaviors: !<reference.ScriptComponent[]>
-        []
-      onPressUpBehaviors: !<reference.ScriptComponent[]>
-        []
-      onPressBehaviors: !<reference.ScriptComponent[]>
-        []
-      onPressDownGlobalBehaviors: !<string[]>
-        []
-      onPressUpGlobalBehaviors: !<string[]>
-        []
-      onPressGlobalBehaviors: !<string[]>
-        []
-      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
-      onPressDownFunctionNames: !<string[]>
-        []
-      onPressUpFunctionNames: !<string[]>
-        []
-      onPressFunctionNames: !<string[]>
-        []
-      editConnections: false
-      backgroundPrefab: !<reference.ObjectPrefab> 4f0a228a-39b3-4881-a54f-19c250823938
-      foregroundPrefab: !<reference.ObjectPrefab> aa5233d8-b9fb-45d5-a4b4-9c3115fc1073
-      textPrefab: !<reference.ObjectPrefab> 12501a3e-2e0b-432e-9fcd-287695978948
-      editDebugSettings: false
-      printDebugStatements: false
-      printWarningStatements: false
-      disableTouchEventsInput: false
-  ScriptTypes:
-    "":
-      {}
 - !<ScriptComponent/999208ee-8be7-4505-a41a-c2cf866d1675>
   PrefabRemaps:
     []
@@ -27244,34 +27089,6 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
-- !<ScriptComponent/f0a941d0-4411-4584-a8bb-9adfe3199a89>
-  PrefabRemaps:
-    []
-  Name: UI Panel
-  Enabled: true
-  ScriptAsset: !<reference> 15bbdf97-40f9-4197-a448-c40643796e63
-  ScriptInputsDefault:
-    interactable: true
-    renderOrderOverride: true
-    editAdvancedOptions: true
-    printDebugStatements: true
-    printWarningStatements: true
-    disableTouchEventsInput: true
-    panelMaterial: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      interactable: true
-      renderOrderOverride: 0
-      editAdvancedOptions: false
-      printDebugStatements: false
-      printWarningStatements: false
-      disableTouchEventsInput: false
-      panelMaterial: !<reference.Material> 75a9d2d9-39e8-423f-ab5e-f4cdf05d88c4
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/f0e33766-c981-4f7a-b17b-a50e70c8b6bc>
   PrefabRemaps:
     []
