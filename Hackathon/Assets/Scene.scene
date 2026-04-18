@@ -2625,7 +2625,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> e4e530d6-e4ff-4f40-9a9a-0a81cbe79e41
   Components:
     - !<own> 78db7fc2-45db-4612-ac96-653d0aac00d5
 - !<ScriptComponent/1774c7ac-f45e-4ebd-9edb-d61dcad046ba>
@@ -4013,6 +4013,23 @@
     []
   Components:
     - !<own> 0aac97af-862f-4f78-8eaf-3539667bfa02
+- !<AudioComponent/220f1688-ea61-4582-ad56-99a26da14c9c>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<ScriptComponent/22a4cda0-f43d-423e-b3ed-dab796bf6a42>
   PrefabRemaps:
     []
@@ -13155,6 +13172,13 @@
       panel4: !<reference.SceneObject> e5cfdd4c-6a74-4e58-ac3d-9e19f73f1198
       panel5: !<reference.SceneObject> 41bec9b2-f5d3-4ce1-9b51-469a40988277
       panel6: !<reference.SceneObject> e5e300e9-12f7-4226-96f1-152486e1f25d
+      learnAudio: !<reference.AudioComponent> 220f1688-ea61-4582-ad56-99a26da14c9c
+      step1Audio: !<reference.AudioTrackAsset> bd411fea-a0c5-46b0-99e1-a32ac509a54c
+      step2Audio: !<reference.AudioTrackAsset> 6ac04488-f922-492a-a687-d28316ccaab2
+      step3Audio: !<reference.AudioTrackAsset> 960ecbcc-da00-4d0f-90c2-b2f561aee55c
+      step4Audio: !<reference.AudioTrackAsset> db6e0f2e-9637-4e58-b4d5-8bc9e672d773
+      step5Audio: !<reference.AudioTrackAsset> 60a81cad-8908-4f34-9f66-ff085834420f
+      step6Audio: !<reference.AudioTrackAsset> 8c65d87b-7931-423b-872b-6815ea799d2c
   ScriptTypes:
     "":
       {}
@@ -25847,6 +25871,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/e4e530d6-e4ff-4f40-9a9a-0a81cbe79e41>
+  PrefabRemaps:
+    []
+  Name: LearnModeAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 220f1688-ea61-4582-ad56-99a26da14c9c
 - !<SceneObject/e4f7489f-d655-45ad-bc21-f888222c0ae0>
   PrefabRemaps:
     []
