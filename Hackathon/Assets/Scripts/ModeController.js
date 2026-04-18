@@ -2,40 +2,63 @@
 // @input SceneObject learnMode
 // @input SceneObject practiceMode
 // @input SceneObject quizMode
+// @input Component.ScriptComponent learnButton
+// @input Component.ScriptComponent practiceButton
+// @input Component.ScriptComponent quizButton
 
-var currentMode = "learn";
+var currentMode = "";
+var bound = false; // prevents rebinding on lens reset
 
 function switchMode(mode) {
-    script.learnMode.enabled   = (mode === "learn");
-    script.practiceMode.enabled = (mode === "practice");
-    script.quizMode.enabled    = (mode === "quiz");
+    if (mode === currentMode) return;
     currentMode = mode;
+
+    script.learnMode.enabled    = (mode === "learn");
+    script.practiceMode.enabled = (mode === "practice");
+    script.quizMode.enabled     = (mode === "quiz");
+
     print("Mode switched to: " + mode);
+    global.ModeController.onModeChanged(mode);
 }
 
-// Stubbed signals for teammates to hook into
-var onCompressionDetected = function() {
-    // Person 2 will trigger this
-    print("STUB: compression detected");
-};
+function bindButton(buttonScript, mode) {
+    if (!buttonScript) {
+        print("ModeController: missing button for " + mode);
+        return;
+    }
 
-var onUIReady = function() {
-    // Person 3 will trigger this
-    print("STUB: UI ready");
-};
+    if (buttonScript.onStateChanged && typeof buttonScript.onStateChanged.add === "function") {
+        buttonScript.onStateChanged.add(function(state) {
+            if (state === "triggered") {
+                print("BUTTON PRESSED: " + mode);
+                switchMode(mode);
+            }
+        });
+        print("ModeController: bound " + mode);
+    }
+}
 
-var onAudioTrigger = function(clipName) {
-    // Person 4 will trigger this
-    print("STUB: audio trigger - " + clipName);
-};
+var onModeChanged         = function(mode)     { print("STUB: mode changed to " + mode); };
+var onCompressionDetected = function()         { print("STUB: compression detected"); };
+var onUIReady             = function()         { print("STUB: UI ready"); };
+var onAudioTrigger        = function(clipName) { print("STUB: audio trigger - " + clipName); };
 
-// Expose globally so other scripts can call these
 global.ModeController = {
-    switchMode: switchMode,
+    switchMode:            switchMode,
+    getCurrentMode:        function() { return currentMode; },
+    onModeChanged:         onModeChanged,
     onCompressionDetected: onCompressionDetected,
-    onUIReady: onUIReady,
-    onAudioTrigger: onAudioTrigger
+    onUIReady:             onUIReady,
+    onAudioTrigger:        onAudioTrigger
 };
 
-// Start in Learn mode
-switchMode("learn");
+var startEvent = script.createEvent("OnStartEvent");
+startEvent.bind(function() {
+    if (bound) return; // CRITICAL: only bind once
+    bound = true;
+
+    bindButton(script.learnButton,    "learn");
+    bindButton(script.practiceButton, "practice");
+    bindButton(script.quizButton,     "quiz");
+    switchMode("learn");
+});

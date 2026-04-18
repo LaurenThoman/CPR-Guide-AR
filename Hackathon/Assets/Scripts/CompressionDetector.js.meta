@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/bfc466d0-d74d-4eeb-a6d9-b291bfc22e45>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> fcb27aa8-389c-4f15-a1fe-2c100241745e
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> fcb27aa8-389c-4f15-a1fe-2c100241745e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> d48e551f-c9b3-4d89-af9a-723b06c4d3a1
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/d48e551f-c9b3-4d89-af9a-723b06c4d3a1>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: b570e51d-de9e-446d-a7e8-f76cbd373246
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    debounceMs: false
+    hand: false
+    sensitivity: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - hand: !<reference.HandTracking> 00000000-0000-0000-0000-000000000000
+      sensitivity: 1.500000
+      debounceMs: !<float> 300.000000
+  ScriptTypes:
+    -
+      {}

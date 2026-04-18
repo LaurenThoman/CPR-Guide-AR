@@ -26,8 +26,11 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    learnButton: false
     learnMode: false
+    practiceButton: false
     practiceMode: false
+    quizButton: false
     quizMode: false
   ScriptTypesHidden:
     {}
@@ -41,6 +44,9 @@
     - learnMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       practiceMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       quizMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      learnButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      practiceButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      quizButton: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
