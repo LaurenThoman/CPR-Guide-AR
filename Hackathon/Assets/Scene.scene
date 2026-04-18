@@ -10,6 +10,7 @@
     - !<own> 171e5882-e7f2-420f-9aea-a09b7412fb6f
     - !<own> ef725efd-6b86-4b93-82bb-0ad9afe7279d
     - !<own> 5d604171-a793-45fd-a241-58f8633a73e3
+    - !<own> 71f5fc82-721b-4eec-a819-27482c499faf
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -3838,16 +3839,14 @@
   Enabled: true
   ScriptAsset: !<reference> e4c99e85-1796-4e70-8158-e04bf29e27ce
   ScriptInputsDefault:
-    learnMode: true
-    practiceMode: true
-    quizMode: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      learnMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      practiceMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      quizMode: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      learnMode: !<reference.SceneObject> 171e5882-e7f2-420f-9aea-a09b7412fb6f
+      practiceMode: !<reference.SceneObject> ef725efd-6b86-4b93-82bb-0ad9afe7279d
+      quizMode: !<reference.SceneObject> 5d604171-a793-45fd-a241-58f8633a73e3
   ScriptTypes:
     "":
       {}
@@ -10645,6 +10644,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/71f5fc82-721b-4eec-a819-27482c499faf>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<ColliderComponent/722a5bc7-5537-4983-abeb-8a15617e96c5>
   PrefabRemaps:
     []
@@ -14685,6 +14699,21 @@
     - !<own> 541a1667-fb17-43bf-bd3b-7b713063d3f7
   Components:
     []
+- !<SceneObject/9bc98870-31ea-4da8-adc2-0d8c1a10638c>
+  PrefabRemaps:
+    []
+  Name: CompressionDetector
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a57ea875-be32-4690-839d-7c9ae29bd818
 - !<SceneObject/9c048e1c-40de-4d35-a963-d520b0b23be3>
   PrefabRemaps:
     []
@@ -15512,6 +15541,24 @@
         - !<reference> a1855e6c-b42b-4967-8ebd-c22608c9339a
         - !<reference> 4eaf3c48-cf6f-48e4-b145-f2dfa373881e
         - !<reference> c9d5debc-b8a9-4855-9f50-2998679693cc
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/a57ea875-be32-4690-839d-7c9ae29bd818>
+  PrefabRemaps:
+    []
+  Name: CompressionDetector
+  Enabled: true
+  ScriptAsset: !<reference> 29bad666-14cf-448e-bbb2-67bb30b131b9
+  ScriptInputsDefault:
+    sensitivity: true
+    debounceMs: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      sensitivity: 1.500000
+      debounceMs: !<float> 300.000000
   ScriptTypes:
     "":
       {}
@@ -23477,7 +23524,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> 9bc98870-31ea-4da8-adc2-0d8c1a10638c
   Components:
     - !<own> 1be557b9-d9d7-4cec-a739-3da6c28b10f8
 - !<Image/efe972c9-d9d8-4a53-a052-708a0ee6ab6b>
