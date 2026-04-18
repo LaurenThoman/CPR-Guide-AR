@@ -7,11 +7,13 @@
  *
  * Compression detection strategy:
  *   - "Centered" = dominant hand within XZ_RADIUS of chest and within
- *     Y_HOVER_MAX above chest (hand is hovering over the body).
- *   - A compression starts when the hand moves downward past Y_PRESS_THRESHOLD
- *     relative to the hover baseline.
- *   - The compression event fires at the lowest point (velocity sign flip).
- *   - Depth is the magnitude of that downward excursion in cm.
+ *     Y_HOVER_MAX above / Y_HOVER_MIN below chest. The below-chest slack
+ *     must accommodate a full compression (≥6cm), not just the surface.
+ *   - Baseline is the highest Y reached while hovering, captured
+ *     continuously — so a slow descent doesn't under-report depth.
+ *   - A compression starts when smoothed downward velocity crosses the
+ *     threshold, and ends at the velocity sign flip (lowest point).
+ *   - Depth is the magnitude of the downward excursion in cm.
  *
  * AHA 2020 targets: 100–120 BPM, 5–6 cm depth.
  */
@@ -25,12 +27,14 @@ import { CPRSignalBus } from "./CPRSignalBus";
 // Tuning constants (in Lens Studio world units = cm)
 const XZ_RADIUS = 20;          // max horizontal distance to count as "over chest"
 const Y_HOVER_MAX = 25;        // max cm above chest to be in hover zone
-const Y_HOVER_MIN = -2;        // a little below chest surface is ok
+const Y_HOVER_MIN = -20;       // max cm BELOW chest — must accommodate full compression
 const COMPRESSION_MIN_DEPTH = 2.5;  // cm — minimum to register as a compression
 const DEPTH_GOOD_MIN = 5.0;    // cm — AHA lower bound
 const DEPTH_GOOD_MAX = 6.5;    // cm — AHA upper bound + small margin
 const BPM_WINDOW = 8;          // number of intervals used for rolling BPM average
 const DT_SMOOTH = 0.15;        // lerp factor for smoothing hand Y velocity
+const VELOCITY_DOWN_THRESHOLD = -2;  // cm/s (smoothed) — stroke entry
+const VELOCITY_UP_THRESHOLD = 1;     // cm/s (smoothed) — stroke exit
 
 @component
 export class CPRHandDetection extends BaseScriptComponent {
@@ -42,7 +46,27 @@ export class CPRHandDetection extends BaseScriptComponent {
   bodyEnvironment: CPRBodyEnvironment;
 
   @input
+  @hint("Optional: drag a SceneObject here (e.g. a Sphere) to use it as the chest target instead of body tracking. When set, takes precedence over bodyEnvironment.")
+  chestTargetOverride: SceneObject = null;
+
+  @input
+  @hint("Horizontal radius (cm) around the chest target that counts as 'centered'. Increase this when practicing on a larger sphere/mannequin.")
+  xzRadiusCm: number = XZ_RADIUS;
+
+  @input
+  @hint("Max cm the hand can hover ABOVE the chest target and still count as 'centered'.")
+  yHoverMaxCm: number = Y_HOVER_MAX;
+
+  @input
+  @hint("Max cm the hand can go BELOW the chest target and still count as 'centered'. Must be large enough to fit a full compression (default -20).")
+  yHoverMinCm: number = Y_HOVER_MIN;
+
+  @input
   enableLogging: boolean = false;
+
+  @input
+  @hint("Print chest/hand positions once per second while logging is on. Useful for first-time calibration.")
+  debugPositions: boolean = false;
 
   private logger: Logger;
 
@@ -54,11 +78,19 @@ export class CPRHandDetection extends BaseScriptComponent {
   private strokeBaseline: number = 0;    // hand Y at stroke entry (world cm)
   private strokePeak: number = 0;        // lowest Y reached in this stroke
   private prevHandY: number = 0;
+  private hasValidPrevY: boolean = false;
   private smoothedVelocityY: number = 0;
   private prevTime: number = 0;
 
+  // Highest Y seen while hovering — used as baseline when a stroke starts
+  private hoverHighY: number = 0;
+  private hasHoverHighY: boolean = false;
+
   // BPM rolling window
   private compressionTimestamps: number[] = [];
+
+  // Debug log throttle
+  private lastDebugLog: number = 0;
 
   onAwake(): void {
     this.logger = new Logger("CPRHandDetection", this.enableLogging, true);
@@ -73,14 +105,12 @@ export class CPRHandDetection extends BaseScriptComponent {
     const dt = Math.max(now - this.prevTime, 0.001);
     this.prevTime = now;
 
-    const chestPos = this.bodyEnvironment
-      ? this.bodyEnvironment.chestWorldPosition
-      : vec3.zero();
+    const chestPos = this.getChestPosition();
 
     const handPos = this.getDominantHandPosition(chestPos);
     if (!handPos) {
       CPRSignalBus.handsCentered = false;
-      this.inStroke = false;
+      this.resetStrokeState();
       return;
     }
 
@@ -90,11 +120,31 @@ export class CPRHandDetection extends BaseScriptComponent {
     const dy = handPos.y - chestPos.y;  // positive = hand above chest
 
     const centered =
-      xzDist < XZ_RADIUS && dy >= Y_HOVER_MIN && dy <= Y_HOVER_MAX;
+      xzDist < this.xzRadiusCm &&
+      dy >= this.yHoverMinCm &&
+      dy <= this.yHoverMaxCm;
     CPRSignalBus.handsCentered = centered;
 
+    if (this.debugPositions && now - this.lastDebugLog > 1.0) {
+      this.logger.debug(
+        `chest.y=${chestPos.y.toFixed(1)} hand.y=${handPos.y.toFixed(1)} ` +
+        `dy=${dy.toFixed(1)} xz=${xzDist.toFixed(1)} centered=${centered}`
+      );
+      this.lastDebugLog = now;
+    }
+
     if (!centered) {
-      this.inStroke = false;
+      this.resetStrokeState();
+      return;
+    }
+
+    // On re-entry to the centered zone, seed prevHandY and skip velocity
+    // calc this frame so a stale prevHandY doesn't produce a huge fake dY
+    // that flows into the smoothing filter and triggers a false stroke.
+    if (!this.hasValidPrevY) {
+      this.prevHandY = handPos.y;
+      this.smoothedVelocityY = 0;
+      this.hasValidPrevY = true;
       return;
     }
 
@@ -104,12 +154,25 @@ export class CPRHandDetection extends BaseScriptComponent {
       this.smoothedVelocityY * (1 - DT_SMOOTH) + rawVelY * DT_SMOOTH;
     this.prevHandY = handPos.y;
 
-    if (!this.inStroke && this.smoothedVelocityY < -2) {
+    // Track the highest Y reached while hovering so the baseline reflects
+    // the true starting height — not wherever the hand happened to be the
+    // frame the velocity filter finally crossed the threshold.
+    if (!this.inStroke) {
+      if (!this.hasHoverHighY || handPos.y > this.hoverHighY) {
+        this.hoverHighY = handPos.y;
+        this.hasHoverHighY = true;
+      }
+    }
+
+    if (!this.inStroke && this.smoothedVelocityY < VELOCITY_DOWN_THRESHOLD) {
       // Hand started moving downward — enter stroke
       this.inStroke = true;
-      this.strokeBaseline = handPos.y;
+      this.strokeBaseline = this.hasHoverHighY ? this.hoverHighY : handPos.y;
       this.strokePeak = handPos.y;
-      this.logger.debug("Compression stroke started");
+      this.hasHoverHighY = false;
+      this.logger.debug(
+        `Compression stroke started (baseline=${this.strokeBaseline.toFixed(2)})`
+      );
     }
 
     if (this.inStroke) {
@@ -118,14 +181,23 @@ export class CPRHandDetection extends BaseScriptComponent {
       }
 
       // Compression completes when hand starts moving up again
-      if (this.smoothedVelocityY > 1) {
+      if (this.smoothedVelocityY > VELOCITY_UP_THRESHOLD) {
         const depthCm = this.strokeBaseline - this.strokePeak;
+        this.logger.debug(
+          `Stroke ended: depth=${depthCm.toFixed(2)}cm (min=${COMPRESSION_MIN_DEPTH})`
+        );
         if (depthCm >= COMPRESSION_MIN_DEPTH) {
           this.registerCompression(depthCm, now);
         }
         this.inStroke = false;
       }
     }
+  }
+
+  private resetStrokeState(): void {
+    this.inStroke = false;
+    this.hasValidPrevY = false;
+    this.hasHoverHighY = false;
   }
 
   private registerCompression(depthCm: number, now: number): void {
@@ -153,8 +225,22 @@ export class CPRHandDetection extends BaseScriptComponent {
 
     CPRSignalBus.fireCompressionEvent();
     this.logger.debug(
-      `Compression: depth=${depthCm.toFixed(1)}cm, BPM=${CPRSignalBus.currentBPM}, depth=${CPRSignalBus.compressionDepth}`
+      `Compression: depth=${depthCm.toFixed(1)}cm, BPM=${CPRSignalBus.currentBPM}, class=${CPRSignalBus.compressionDepth}`
     );
+  }
+
+  /**
+   * Resolves the chest target position this frame.
+   * Priority: explicit SceneObject override > CPRBodyEnvironment > origin.
+   */
+  private getChestPosition(): vec3 {
+    if (this.chestTargetOverride) {
+      return this.chestTargetOverride.getTransform().getWorldPosition();
+    }
+    if (this.bodyEnvironment) {
+      return this.bodyEnvironment.chestWorldPosition;
+    }
+    return vec3.zero();
   }
 
   /**

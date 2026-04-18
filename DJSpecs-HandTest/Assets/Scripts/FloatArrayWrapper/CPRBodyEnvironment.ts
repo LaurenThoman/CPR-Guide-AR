@@ -22,11 +22,11 @@ export class CPRBodyEnvironment extends BaseScriptComponent {
   @ui.separator
 
   @input
-  @hint("SceneObject that has the ObjectTracking3D component attached")
+  @hint("SceneObject that has the ObjectTracking3D component attached. Leave empty to use chestAnchor as a static target (e.g. a Sphere).")
   trackingObject: SceneObject;
 
   @input
-  @hint("Child SceneObject used as the chest anchor (attached to Spine1)")
+  @hint("Chest anchor SceneObject. If trackingObject is set, this is attached to Spine2. If not, its world position is used directly (e.g. drop in a Sphere here to practice on a static target).")
   chestAnchor: SceneObject;
 
   @input
@@ -47,7 +47,9 @@ export class CPRBodyEnvironment extends BaseScriptComponent {
     this.logger = new Logger("CPRBodyEnvironment", this.enableLogging, true);
 
     if (!this.trackingObject) {
-      this.logger.debug("trackingObject not set — body tracking disabled");
+      this.logger.debug(
+        "trackingObject not set — using chestAnchor as a static target (sphere/mannequin mode)"
+      );
       return;
     }
 
