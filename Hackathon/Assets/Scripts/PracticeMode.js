@@ -1,4 +1,5 @@
 // PracticeMode.js
+// @input Component.AudioComponent cprBeatAudio {"hint":"Assign an Audio Component with your CPR metronome track"}
 var TARGET_COMPRESSIONS = 30;
 var TARGET_RATE_MIN = 100; // per minute
 var TARGET_RATE_MAX = 120;
@@ -7,11 +8,45 @@ var count = 0;
 var timestamps = [];
 var isActive = false;
 
+function safeAudioStop(ac) {
+    if (!ac) {
+        return;
+    }
+    if (!ac.isEnabledInHierarchy) {
+        return;
+    }
+    try {
+        ac.stop(false);
+    } catch (e) {
+        // no-op
+    }
+}
+
 function start() {
     count = 0;
     timestamps = [];
     isActive = true;
     print("Practice started");
+
+    if (script.cprBeatAudio) {
+        var startBeat = script.createEvent("DelayedCallbackEvent");
+        startBeat.bind(function() {
+            if (!script.cprBeatAudio) {
+                return;
+            }
+            try {
+                safeAudioStop(script.cprBeatAudio);
+                script.cprBeatAudio.volume = 0.175;
+                script.cprBeatAudio.play(-1);
+                print("PracticeMode: cprBeatAudio playing");
+            } catch (e) {
+                print("PracticeMode: cprBeatAudio.play failed — assign an Audio Track on the component? " + e);
+            }
+        });
+        startBeat.reset(0.01);
+    } else {
+        print("PracticeMode: cprBeatAudio not assigned in Inspector");
+    }
 
     if (global.PracticeMode.onCountUpdated) {
         global.PracticeMode.onCountUpdated(count, TARGET_COMPRESSIONS);
@@ -21,6 +56,8 @@ function start() {
 function stop() {
     isActive = false;
     print("Practice stopped");
+
+    safeAudioStop(script.cprBeatAudio);
 }
 
 // Person 2 calls this when they detect a compression

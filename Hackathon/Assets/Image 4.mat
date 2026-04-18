@@ -1,8 +1,8 @@
-- !<Material/67d2296f-89df-4834-b60d-779caf49324c>
+- !<Material/9463ff50-f315-44f4-beb0-195a293e3aaa>
   PackagePath: ""
   PassesInfo:
-    - !<own> 5428593a-b31e-46fd-8f80-1f6aa07c633c
-- !<PassInfo/5428593a-b31e-46fd-8f80-1f6aa07c633c>
+    - !<own> 7caf7496-bd61-479a-91d4-b54de15d084b
+- !<PassInfo/7caf7496-bd61-479a-91d4-b54de15d084b>
   CachedProperties:
     - Port_Default_N369:
         typeIdx: 5
@@ -37,7 +37,7 @@
     baseTex:
       typeIdx: 9
       value:
-        id: 1fcbd44b-925a-41f9-83e4-144f31232aac
+        id: c5326679-986d-44a4-8cf8-6bfbdc23f459
         sampler:
           filteringMode: Trilinear
           wrapModeU: ClampToEdge
@@ -46,4 +46,4 @@
           borderColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
           mipmaps: false
         type: Texture2D
-  Pass: !<reference> b79a345d-ebee-4d41-b521-4a2c4251f7b4
+  Pass: !<reference> 20678f61-4159-45e7-968b-c8fefafa8a51
