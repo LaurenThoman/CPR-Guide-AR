@@ -2892,6 +2892,23 @@
     []
   Components:
     - !<own> d6323f70-5cca-4357-9cec-d4071d718edf
+- !<AudioComponent/1b70b9cc-abe3-42e9-9383-be931d1a8996>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 19c9e127-cd78-4af7-b031-256bfe8d4cdc
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<Text/1b89ba60-544d-4e74-ab79-055d49bc2b56>
   PrefabRemaps:
     []
@@ -14632,6 +14649,21 @@
     - !<own> e4f7489f-d655-45ad-bc21-f888222c0ae0
   Components:
     - !<own> 80f58a13-7093-40d9-8116-e117a8a76cbc
+- !<SceneObject/932630ef-c0a8-48d4-a167-2743132cc27b>
+  PrefabRemaps:
+    []
+  Name: FeedbackAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a9e21495-a3b2-4970-8b61-15bcad472449
 - !<ScriptComponent/9327ce84-9909-4647-8b8e-462ee16d1386>
   PrefabRemaps:
     []
@@ -16544,6 +16576,27 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/a9e21495-a3b2-4970-8b61-15bcad472449>
+  PrefabRemaps:
+    []
+  Name: PracticeFeedbackAudio
+  Enabled: true
+  ScriptAsset: !<reference> 0f5bb457-e00d-4ce7-bf73-5f8fb03158e9
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      feedbackAudio: !<reference.AudioComponent> 1b70b9cc-abe3-42e9-9383-be931d1a8996
+      clipBpmTooHigh: !<reference.AudioTrackAsset> b96a097d-1963-4119-8962-ef5d77821b52
+      clipBpmTooLow: !<reference.AudioTrackAsset> 79f5962a-895c-45a9-a5d1-1461ff80b3ce
+      clipTooShallow: !<reference.AudioTrackAsset> 19c9e127-cd78-4af7-b031-256bfe8d4cdc
+      clipTooDeep: !<reference.AudioTrackAsset> b7bc591b-61a4-4b97-9634-efc5856ca64b
+      clipHandsNotCentered: !<reference.AudioTrackAsset> 6bd0466e-c466-48a2-bc94-328a0cc25cf7
+  ScriptTypes:
+    "":
+      {}
 - !<Text/aa27d505-8cd1-46a8-b8b9-1258be0f4e71>
   PrefabRemaps:
     []
@@ -17313,6 +17366,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/adfb5a4d-8c4c-40e8-8294-6f338cef08b4>
+  PrefabRemaps:
+    []
+  Name: Feedback_Audio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1b70b9cc-abe3-42e9-9383-be931d1a8996
 - !<ScriptComponent/ae2364ad-1a78-49d8-aa42-648cf33aeaa2>
   PrefabRemaps:
     []
@@ -24603,6 +24671,8 @@
   Children:
     - !<own> 0cd61a6c-e394-4447-949c-211c44eaac44
     - !<own> a87c80ca-1a0e-4b05-8fd7-c061d92f0062
+    - !<own> 932630ef-c0a8-48d4-a167-2743132cc27b
+    - !<own> adfb5a4d-8c4c-40e8-8294-6f338cef08b4
   Components:
     - !<own> 1be557b9-d9d7-4cec-a739-3da6c28b10f8
 - !<Image/efe972c9-d9d8-4a53-a052-708a0ee6ab6b>
