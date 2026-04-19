@@ -1,0 +1,12 @@
+CollapsedEntities:
+  type: stringset
+  value:
+    size: 6
+    values:
+      - Scripts/FloatArrayWrapper/CPRBodyEnvironment.ts
+      - Scripts/FloatArrayWrapper/CPRHandDetection.ts
+      - SnapDecorators.lspkg/package.native
+      - SpectaclesInteractionKit.lspkg/package.native
+      - SpectaclesUIKit.lspkg/package.native
+      - Utilities.lspkg/package.native
+  options: 4
