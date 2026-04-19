@@ -5,17 +5,16 @@
  * BodyTrackingAsset. Exposes the chest SceneObject world position so
  * CPRHandDetection can measure hand position relative to it.
  *
- * Setup in Lens Studio:
- *   1. Add a SceneObject, attach ObjectTracking3D component to it.
- *   2. In ObjectTracking3D, set Tracking Asset to a BodyTrackingAsset
- *      (add via Add Object > Body Tracking in the scene panel).
- *   3. Drag that SceneObject into the "trackingObject" input below.
- *   4. Optionally assign a visual mesh to "chestMarkerVisual" so you can
- *      see where the chest anchor is (a small sphere works).
+ * Two modes:
+ *   1. Body-tracking mode: set `trackingObject` to a SceneObject that has
+ *      ObjectTracking3D + a BodyTrackingAsset. `chestAnchor` is attached to
+ *      Spine2 (mid-sternum).
+ *   2. Static-target mode: leave `trackingObject` empty and point
+ *      `chestAnchor` at any SceneObject (e.g. a Sphere, a marker on a
+ *      cushion). Its world position is used directly.
+ *
+ * Hackathon build — does not depend on Utilities.lspkg or SnapDecorators.lspkg.
  */
-import { Logger } from "Utilities.lspkg/Scripts/Utils/Logger";
-import { bindUpdateEvent } from "SnapDecorators.lspkg/decorators";
-
 @component
 export class CPRBodyEnvironment extends BaseScriptComponent {
   @ui.label('<span style="color: #34D399;">CPRBodyEnvironment — chest anchor from body tracking</span>')
@@ -36,18 +35,19 @@ export class CPRBodyEnvironment extends BaseScriptComponent {
   @input
   enableLogging: boolean = false;
 
-  private logger: Logger;
   private tracking3D: ObjectTracking3D | null = null;
-  private isBodyTracked: boolean = false;
 
   /** World position of the chest anchor — read by CPRHandDetection. */
   chestWorldPosition: vec3 = vec3.zero();
 
   onAwake(): void {
-    this.logger = new Logger("CPRBodyEnvironment", this.enableLogging, true);
+    this.createEvent("OnStartEvent").bind(() => this.onStart());
+    this.createEvent("UpdateEvent").bind(() => this.onUpdate());
+  }
 
+  private onStart(): void {
     if (!this.trackingObject) {
-      this.logger.debug(
+      this.log(
         "trackingObject not set — using chestAnchor as a static target (sphere/mannequin mode)"
       );
       return;
@@ -58,31 +58,33 @@ export class CPRBodyEnvironment extends BaseScriptComponent {
     ) as ObjectTracking3D;
 
     if (!this.tracking3D) {
-      this.logger.debug("No ObjectTracking3D found on trackingObject");
+      this.log("No ObjectTracking3D found on trackingObject");
       return;
     }
 
-    // Attach the chest anchor to the mid-sternum (Spine1 = lower chest,
-    // Spine2 = upper chest). Spine2 is closest to the CPR compression point.
+    // Spine2 is the mid-sternum — the CPR compression point.
     if (this.chestAnchor) {
       this.tracking3D.addAttachmentPoint(
         BodyTrackingAsset.Spine2,
         this.chestAnchor
       );
-      this.logger.debug("Chest anchor attached to Spine2");
+      this.log("Chest anchor attached to Spine2");
     } else {
       this.chestAnchor = this.tracking3D.createAttachmentPoint(
         BodyTrackingAsset.Spine2
       );
-      this.logger.debug("Chest anchor created at Spine2");
+      this.log("Chest anchor created at Spine2");
     }
   }
 
-  @bindUpdateEvent
-  onUpdate(): void {
+  private onUpdate(): void {
     if (!this.chestAnchor) return;
     this.chestWorldPosition = this.chestAnchor
       .getTransform()
       .getWorldPosition();
+  }
+
+  private log(msg: string): void {
+    if (this.enableLogging) print("[CPRBodyEnvironment] " + msg);
   }
 }

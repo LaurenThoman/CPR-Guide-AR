@@ -22,11 +22,20 @@
   VersionMajor: 0
   VersionMinor: 0
   VersionPatch: 0
-  ComponentUid: 00000000-0000-0000-0000-000000000000
+  ComponentUid: 0f67b0d2-0b19-41fc-989b-209687660786
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    baselineFollowSpeed: false
+    chestTarget: false
+    compressionDownThresholdCm: false
+    compressionReleaseThresholdCm: false
+    debugText: false
+    goodDepthMaxCm: false
+    goodDepthMinCm: false
+    handMarker: false
+    placementMaxDistanceCm: false
+    signalBus: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,10 +45,27 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - signalBus: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      debugText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      chestTarget: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      handMarker: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      placementMaxDistanceCm: !<float> 10.000000
+      compressionDownThresholdCm: !<float> 3.000000
+      compressionReleaseThresholdCm: 1.250000
+      goodDepthMinCm: !<float> 4.000000
+      goodDepthMaxCm: !<float> 6.000000
+      baselineFollowSpeed: 0.080000
   ScriptTypes:
     -
       {}
   InputLines:
-    []
+    - // @input AssignableType signalBus
+    - // @input Component.Text debugText
+    - // @input SceneObject chestTarget
+    - // @input SceneObject handMarker
+    - // @input float placementMaxDistanceCm = 10
+    - // @input float compressionDownThresholdCm = 3
+    - // @input float compressionReleaseThresholdCm = 1.25
+    - // @input float goodDepthMinCm = 4
+    - // @input float goodDepthMaxCm = 6
+    - // @input float baselineFollowSpeed = 0.08
