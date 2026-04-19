@@ -42,6 +42,21 @@
     feedbackPanel8: false
     feedbackPanel9: false
     instructionsNextButton: false
+    q10Answers: false
+    q11Answers: false
+    q12Answers: false
+    q13Answers: false
+    q14Answers: false
+    q15Answers: false
+    q1Answers: false
+    q2Answers: false
+    q3Answers: false
+    q4Answers: false
+    q5Answers: false
+    q6Answers: false
+    q7Answers: false
+    q8Answers: false
+    q9Answers: false
     questionPanel1: false
     questionPanel10: false
     questionPanel11: false
@@ -59,6 +74,7 @@
     questionPanel9: false
     quizInstructions: false
     quizResultsPanel: false
+    resultsNextButton: false
     resultsScoreText: false
   ScriptTypesHidden:
     {}
@@ -88,6 +104,37 @@
       quizResultsPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       resultsScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       instructionsNextButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      resultsNextButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      q1Answers: !<reference.SceneObject[]>
+        []
+      q2Answers: !<reference.SceneObject[]>
+        []
+      q3Answers: !<reference.SceneObject[]>
+        []
+      q4Answers: !<reference.SceneObject[]>
+        []
+      q5Answers: !<reference.SceneObject[]>
+        []
+      q6Answers: !<reference.SceneObject[]>
+        []
+      q7Answers: !<reference.SceneObject[]>
+        []
+      q8Answers: !<reference.SceneObject[]>
+        []
+      q9Answers: !<reference.SceneObject[]>
+        []
+      q10Answers: !<reference.SceneObject[]>
+        []
+      q11Answers: !<reference.SceneObject[]>
+        []
+      q12Answers: !<reference.SceneObject[]>
+        []
+      q13Answers: !<reference.SceneObject[]>
+        []
+      q14Answers: !<reference.SceneObject[]>
+        []
+      q15Answers: !<reference.SceneObject[]>
+        []
       feedbackPanel1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       feedbackPanel2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       feedbackPanel3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000

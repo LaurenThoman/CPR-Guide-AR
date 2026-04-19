@@ -24,7 +24,25 @@
 // @input Component.Text resultsScoreText
 //
 // @input SceneObject instructionsNextButton
-// Put QuizAnswerButton.js on each A1–A4 control (answerIndex 0–3), or call global.QuizMode.submitAnswer(n) from your UI.
+// @input SceneObject resultsNextButton {"hint":"Pinch/tap button on the results panel that returns to the mode select menu"}
+//
+// Drop the 4 answer SceneObjects into each array below in A1, A2, A3, A4 order.
+// Size each array to 4. Mode_Quiz binds them directly — you do NOT need QuizAnswerButton.js on the buttons.
+// @input SceneObject[] q1Answers
+// @input SceneObject[] q2Answers
+// @input SceneObject[] q3Answers
+// @input SceneObject[] q4Answers
+// @input SceneObject[] q5Answers
+// @input SceneObject[] q6Answers
+// @input SceneObject[] q7Answers
+// @input SceneObject[] q8Answers
+// @input SceneObject[] q9Answers
+// @input SceneObject[] q10Answers
+// @input SceneObject[] q11Answers
+// @input SceneObject[] q12Answers
+// @input SceneObject[] q13Answers
+// @input SceneObject[] q14Answers
+// @input SceneObject[] q15Answers
 //
 // @input SceneObject feedbackPanel1
 // @input SceneObject feedbackPanel2
@@ -232,16 +250,8 @@ function onFeedbackTimerDone() {
     state = STATE_RESULTS;
     updateResultsText();
     updatePanels();
-    print("Quiz: complete — " + score + " / " + TOTAL_QUESTIONS);
-
     cancelDelayedTimer();
-    delayedTimerEvent = script.createEvent("DelayedCallbackEvent");
-    delayedTimerEvent.bind(function() {
-        delayedTimerEvent = null;
-        finishResultsAndReturn();
-    });
-    delayedTimerEvent.reset(FEEDBACK_SECONDS);
-    print("Quiz: results (" + FEEDBACK_SECONDS + "s) then mode select");
+    print("Quiz: complete — " + score + " / " + TOTAL_QUESTIONS + " (waiting on resultsNext button)");
 }
 
 function finishResultsAndReturn() {
@@ -253,32 +263,104 @@ function finishResultsAndReturn() {
     }
 }
 
+function collectInteractableComponents(obj, out) {
+    if (!obj) {
+        return;
+    }
+    var comps = obj.getComponents("Component.ScriptComponent");
+    for (var i = 0; i < comps.length; i++) {
+        var c = comps[i];
+        if (c.onStateChanged && typeof c.onStateChanged.add === "function") {
+            out.push(c);
+        }
+    }
+}
+
+function gatherInteractables(obj) {
+    var found = [];
+    if (!obj) {
+        return found;
+    }
+    collectInteractableComponents(obj, found);
+    var parent = obj.getParent();
+    if (parent) {
+        collectInteractableComponents(parent, found);
+    }
+    for (var i = 0; i < obj.getChildrenCount(); i++) {
+        collectInteractableComponents(obj.getChild(i), found);
+    }
+    return found;
+}
+
 function bindPinchButton(obj, label, fn) {
     if (!obj) {
         print("Quiz: missing button object for " + label);
         return;
     }
-    var comps = obj.getComponents("Component.ScriptComponent");
-    for (var i = 0; i < comps.length; i++) {
-        var cb = comps[i].onStateChanged;
-        if (cb && typeof cb.add === "function") {
-            cb.add(
-                (function(capturedFn) {
-                    var wasPressed = false;
-                    return function(st) {
-                        var isPressed = (st === "triggered" || st === "pinched" || st === 2);
-                        if (isPressed && !wasPressed) {
-                            capturedFn();
-                        }
-                        wasPressed = isPressed;
-                    };
-                })(fn)
-            );
-            print("Quiz: bound " + label);
-            return;
-        }
+    var interactables = gatherInteractables(obj);
+
+    if (interactables.length === 0) {
+        print("Quiz: no onStateChanged found for " + label + " on " + obj.name + " — make sure it has a UIKit / pinch button with onStateChanged.");
+        return;
     }
-    print("Quiz: no onStateChanged on " + obj.name + " (" + label + ")");
+
+    for (var i = 0; i < interactables.length; i++) {
+        interactables[i].onStateChanged.add(
+            (function(capturedFn) {
+                var wasPressed = false;
+                return function(st) {
+                    var isPressed = (st === "triggered" || st === "pinched" || st === 2);
+                    if (isPressed && !wasPressed) {
+                        capturedFn();
+                    }
+                    wasPressed = isPressed;
+                };
+            })(fn)
+        );
+    }
+    print("Quiz: bound " + label + " (" + interactables.length + " interactable(s))");
+}
+
+function getAnswerArrays() {
+    return [
+        script.q1Answers, script.q2Answers, script.q3Answers, script.q4Answers, script.q5Answers,
+        script.q6Answers, script.q7Answers, script.q8Answers, script.q9Answers, script.q10Answers,
+        script.q11Answers, script.q12Answers, script.q13Answers, script.q14Answers, script.q15Answers
+    ];
+}
+
+function bindAnswerButtonsForQuestion(questionIdx, answerObjs) {
+    if (!answerObjs || answerObjs.length === 0) {
+        print("Quiz: Q" + (questionIdx + 1) + " has no answer buttons assigned");
+        return;
+    }
+    for (var ai = 0; ai < answerObjs.length && ai < 4; ai++) {
+        var obj = answerObjs[ai];
+        if (!obj) {
+            continue;
+        }
+        var label = "Q" + (questionIdx + 1) + " A" + (ai + 1);
+        bindPinchButton(
+            obj,
+            label,
+            (function(capturedQIdx, capturedAIdx) {
+                return function() {
+                    // Only accept input if this click is for the question currently on screen.
+                    if (state !== STATE_QUESTION || currentQuestionIndex !== capturedQIdx) {
+                        return;
+                    }
+                    onPickAnswer(capturedAIdx);
+                };
+            })(questionIdx, ai)
+        );
+    }
+}
+
+function bindAllAnswerButtons() {
+    var arrays = getAnswerArrays();
+    for (var q = 0; q < arrays.length; q++) {
+        bindAnswerButtonsForQuestion(q, arrays[q]);
+    }
 }
 
 function bindUiOnce() {
@@ -288,6 +370,8 @@ function bindUiOnce() {
     uiBound = true;
 
     bindPinchButton(script.instructionsNextButton, "instructionsNext", beginQuizFromInstructions);
+    bindPinchButton(script.resultsNextButton, "resultsNext", finishResultsAndReturn);
+    bindAllAnswerButtons();
 }
 
 var onStart = script.createEvent("OnStartEvent");
