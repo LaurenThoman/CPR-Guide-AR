@@ -2247,7 +2247,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 0c9f8b42-3f3e-4541-98c0-c2169487d6c3
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -2304,6 +2304,21 @@
     - !<own> 2e7ebe11-4bc6-4f9a-843a-caccd5508163
   Components:
     - !<own> 95f20054-20d7-4d4c-9c8c-17a8f8cef6ea
+- !<SceneObject/102873e1-5e82-45bd-8266-ed7a76351f9d>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 32.000000, y: 32.000000, z: 32.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1ccf7f64-38b9-4de0-bfe5-6c9c04da0990
 - !<SceneObject/1036d690-6737-4314-a693-b98c84acb3d3>
   PrefabRemaps:
     []
@@ -2347,7 +2362,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 52211a3f-cd84-4757-beb3-487bcdb69d8b
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -2823,7 +2838,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 4d7a1db3-7917-4112-9193-0a9510192095
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -3561,6 +3576,78 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/18716498-61c9-4b3c-9e14-58128324856b>
+  PrefabRemaps:
+    []
+  Name: Frame
+  Enabled: false
+  ScriptAsset: !<reference> 3b46d829-f6db-432a-914c-3551904d3994
+  ScriptInputsDefault:
+    _appearance: true
+    _padding: true
+    allowNonUniformScaling: true
+    relativeZ: true
+    _onlyInteractOnBorder: true
+    allowTranslation: true
+    _cutOutCenter: true
+    _minimumSize: true
+    _maximumSize: true
+    useBillboarding: true
+    xOnTranslate: true
+    xAlways: true
+    xBufferDegrees: true
+    yOnTranslate: true
+    yAlways: true
+    yBufferDegrees: true
+    useSnapping: true
+    itemSnapping: true
+    worldSnapping: true
+    _showFollowButton: true
+    useFollowBehavior: true
+    _following: true
+    _showCloseButton: true
+    _enableInteractionPlane: true
+    _interactionPlaneOffset: true
+    _interactionPlanePadding: true
+    _targetingVisual: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      autoShowHide: false
+      _appearance: Large
+      _innerSize: !<Vec2> {x: 30.000000, y: 22.000000}
+      _padding: !<Vec2> {x: 0.000000, y: 0.000000}
+      _allowScaling: false
+      allowNonUniformScaling: false
+      autoScaleContent: false
+      relativeZ: true
+      _onlyInteractOnBorder: false
+      allowTranslation: true
+      _cutOutCenter: false
+      _minimumSize: !<Vec2> {x: 10.000000, y: 10.000000}
+      _maximumSize: !<Vec2> {x: 150.000000, y: 150.000000}
+      useBillboarding: true
+      xOnTranslate: true
+      xAlways: false
+      xBufferDegrees: !<float> 0.000000
+      yOnTranslate: true
+      yAlways: false
+      yBufferDegrees: !<float> 0.000000
+      useSnapping: false
+      itemSnapping: false
+      worldSnapping: false
+      _showFollowButton: false
+      useFollowBehavior: false
+      _following: false
+      _showCloseButton: false
+      _enableInteractionPlane: true
+      _interactionPlaneOffset: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      _interactionPlanePadding: !<Vec2> {x: 0.000000, y: 0.000000}
+      _targetingVisual: !<float> 1.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/18734423-0169-4035-aadc-1399e43333c8>
   PrefabRemaps:
     []
@@ -3770,6 +3857,25 @@
   ScriptTypes:
     "":
       {}
+- !<Image/1a2392ac-0625-44f7-9c18-255db712e0eb>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> d0ab2d4b-14ea-4fc6-bc50-f01d8609319f
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/1a90888e-d4d2-4c81-b8cb-9e2370b94e8a>
   PrefabRemaps:
     []
@@ -3956,7 +4062,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 93d31b60-ffd0-4ab4-b787-fa6dfca1bf91
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -4102,6 +4208,25 @@
   BodySettingValue: 1.000000
   Damping: 0.000000
   AngularDamping: 0.000000
+- !<Image/1ccf7f64-38b9-4de0-bfe5-6c9c04da0990>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> f742ae87-f065-4ed6-8703-246d922a5032
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/1cd7db8e-4dbb-4b40-a29c-5d8776529529>
   PrefabRemaps:
     []
@@ -4247,7 +4372,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 892e4b38-435b-472a-87c6-c805c486f132
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -4805,6 +4930,7 @@
     []
   Components:
     - !<own> ab0dada4-c9a4-4c1b-9e01-5971f61680e1
+    - !<own> a3a0fc3e-aa29-4c38-ae76-dcb599983dba
 - !<Text/20d00914-bc22-481d-9b15-959be1cd3323>
   PrefabRemaps:
     []
@@ -5754,7 +5880,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 679ac4c8-47f3-48c5-a043-0ff6f20a7eae
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -6434,7 +6560,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> 974f8dba-39be-4c3a-b4f9-12b971a90fbe
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -6972,7 +7098,40 @@
     {}
   ScriptInputs:
     "":
-      {}
+      quizInstructions: !<reference.SceneObject> cd28177c-cd9b-4b49-861f-aa65c3fc8449
+      questionPanel1: !<reference.SceneObject> dab164b6-227c-44a4-ad93-9bfbfb3377bb
+      questionPanel2: !<reference.SceneObject> 62c4e6cc-c101-4348-8683-40948bfbd0f3
+      questionPanel3: !<reference.SceneObject> 56aa8ed2-915c-47a2-a355-5f57dcb0f818
+      questionPanel4: !<reference.SceneObject> fd70f2ca-353b-49eb-9b39-bcee5f4177d8
+      questionPanel5: !<reference.SceneObject> ec0e1274-c8f6-4e19-bf92-8aff0c249256
+      questionPanel6: !<reference.SceneObject> 50d6daae-acf7-4941-aff3-0edd5c356908
+      questionPanel7: !<reference.SceneObject> 343b539d-fe07-46eb-b4bf-3a22caa22e41
+      questionPanel8: !<reference.SceneObject> a55d6c26-ffd6-4ebf-a96d-3172ab73c644
+      questionPanel9: !<reference.SceneObject> aaa065df-55d2-4ca8-aa3e-0119fc370860
+      questionPanel10: !<reference.SceneObject> fc552f06-201f-4c75-8e19-578d083aa5c8
+      questionPanel11: !<reference.SceneObject> d4bee512-ceab-4472-845d-6d72d936bee4
+      questionPanel12: !<reference.SceneObject> b63dacff-bcc2-4c26-95de-985bb1d4f4e5
+      questionPanel13: !<reference.SceneObject> 8ad374f6-de61-492a-a756-485101ebe2c4
+      questionPanel14: !<reference.SceneObject> 9824635d-6657-493b-b033-2521c077c3a7
+      questionPanel15: !<reference.SceneObject> 5786363e-db7e-4c0c-894b-43dd6ea81765
+      quizResultsPanel: !<reference.SceneObject> 4607bda9-9b32-4189-8ff0-9212a5eff735
+      resultsScoreText: !<reference.Text> c696164e-428c-40f0-900c-3b2a2f6818aa
+      instructionsNextButton: !<reference.SceneObject> de431ae3-3d71-42bb-9581-0aa7343ef2fd
+      feedbackPanel1: !<reference.SceneObject> 7ca47972-d259-480c-9187-f1547efbf0af
+      feedbackPanel2: !<reference.SceneObject> dd6c1267-1162-4c91-a37d-2d0f28bdcddd
+      feedbackPanel3: !<reference.SceneObject> fc1c6e5d-80ec-456e-aba0-26bd7ba106a4
+      feedbackPanel4: !<reference.SceneObject> 8b00081c-d61f-40e4-ad78-47abcac09213
+      feedbackPanel5: !<reference.SceneObject> 676a669a-5788-41fd-864e-4a5c405b93b7
+      feedbackPanel6: !<reference.SceneObject> 666ed933-73fb-4117-9cb8-1aca03b007ee
+      feedbackPanel7: !<reference.SceneObject> d842a00c-6f93-4b2f-bb45-8fe025120aa2
+      feedbackPanel8: !<reference.SceneObject> f639f719-d536-46ce-9699-6e257d89039e
+      feedbackPanel9: !<reference.SceneObject> e3d90dd8-d08c-4db3-b7b4-70bfd02488a2
+      feedbackPanel10: !<reference.SceneObject> 11d2d68a-2cd6-4544-9c92-c4305a2e7b99
+      feedbackPanel11: !<reference.SceneObject> 43c4bb03-35cf-4b66-b23c-44aaa6b9d5fb
+      feedbackPanel12: !<reference.SceneObject> a45ef33b-1aea-485f-9f60-6c4cf13654a0
+      feedbackPanel13: !<reference.SceneObject> 7bdc83d1-b60f-4563-a9d5-f1bd13280f43
+      feedbackPanel14: !<reference.SceneObject> 5952f29a-c1e7-4b1f-8732-d33de16e86e0
+      feedbackPanel15: !<reference.SceneObject> d6f5976e-dad5-4b36-a36c-c9b3b2ad055c
   ScriptTypes:
     "":
       {}
@@ -7298,7 +7457,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 8a961fab-c4d6-40ed-af0b-6223a0003098
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -7424,6 +7583,7 @@
     []
   Components:
     - !<own> 53e57cd9-d18d-4ff4-9157-d187d3e18b67
+    - !<own> 1a2392ac-0625-44f7-9c18-255db712e0eb
 - !<Text/32274e46-7800-4d06-93b9-8d3ba5b88b32>
   PrefabRemaps:
     []
@@ -7560,6 +7720,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/32c4415a-5b37-4832-906c-b18bfeb8c9ba>
+  PrefabRemaps:
+    []
+  Name: score
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 1.000000, z: 0.010000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c696164e-428c-40f0-900c-3b2a2f6818aa
 - !<ScriptComponent/32fd60a9-d8ca-46cf-86a8-258bcf899303>
   PrefabRemaps:
     []
@@ -8145,6 +8320,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/3787e561-0d78-4fd9-b3c6-e26cb4e88be0>
+  PrefabRemaps:
+    []
+  Name: Content
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.200000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3ef349fa-7f2f-4d87-8826-cc5b2a0e68b4
+  Components:
+    []
 - !<SceneObject/37985d5a-b3b8-4f4f-8ed2-d95f78af1a5a>
   PrefabRemaps:
     []
@@ -8470,6 +8660,25 @@
   ScriptTypes:
     "":
       {}
+- !<Image/39c21249-8bc2-4ced-bcd9-1aa481da97c3>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 3af6cbfb-5fcc-4425-8d30-bba573f48d38
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<Image/3a3c6e0d-43fd-498e-a2eb-f5a2f16ca6eb>
   PrefabRemaps:
     []
@@ -8596,7 +8805,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> ae25e817-21ed-4ea9-97fb-c04f207f24d1
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -9089,6 +9298,21 @@
     - !<own> 3d7828ee-2891-4454-9f06-7d3aa618c06b
   Components:
     []
+- !<SceneObject/3ef349fa-7f2f-4d87-8826-cc5b2a0e68b4>
+  PrefabRemaps:
+    []
+  Name: Quiz
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -9.000000, z: 0.000999}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 7032ee67-b561-4aff-bd08-75993d20232b
+  Components:
+    - !<own> 8d73d4a7-5749-47ff-a0d7-62ede795e4c3
 - !<Image/3f0a2a36-27c0-4213-8f55-98c46abc0479>
   PrefabRemaps:
     []
@@ -10003,7 +10227,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 7f7f83c1-9236-407c-9144-221aa6dc863a
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -10335,7 +10559,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 1cd08ce5-a091-4d78-8628-f081388efd44
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -10360,6 +10584,24 @@
   RotationAngle: 0
   Pivot: {x: 0.000000, y: 0.000000}
   ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/4607bda9-9b32-4189-8ff0-9212a5eff735>
+  PrefabRemaps:
+    []
+  Name: Quiz_Mode Results
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 102873e1-5e82-45bd-8266-ed7a76351f9d
+    - !<own> 3787e561-0d78-4fd9-b3c6-e26cb4e88be0
+    - !<own> 32c4415a-5b37-4832-906c-b18bfeb8c9ba
+  Components:
+    - !<own> 18716498-61c9-4b3c-9e14-58128324856b
+    - !<own> e67b50c9-5757-40a9-ba85-3c387fabd6dc
 - !<Image/4609d34d-7b41-46a7-b620-6199aec16b27>
   PrefabRemaps:
     []
@@ -11388,7 +11630,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> e47582b2-69a6-4de1-9d72-ca96367b7f25
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -12288,6 +12530,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> cd28177c-cd9b-4b49-861f-aa65c3fc8449
+    - !<own> 4607bda9-9b32-4189-8ff0-9212a5eff735
     - !<own> dab164b6-227c-44a4-ad93-9bfbfb3377bb
     - !<own> 62c4e6cc-c101-4348-8683-40948bfbd0f3
     - !<own> 56aa8ed2-915c-47a2-a355-5f57dcb0f818
@@ -12389,7 +12632,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 09e1c79f-6c24-415b-90a1-6bdd1dd83052
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -12888,6 +13131,25 @@
   Components:
     - !<own> 7b4a67df-40d7-4665-aea0-b9a9ce232732
     - !<own> 27e854ff-f115-428d-b9f5-5dfb4ddf63fa
+- !<Image/56c45fa2-573b-4e68-9623-92284054784d>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> b6bec2b9-53e3-4681-aec7-086a38330bb1
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<Image/56e75a98-095f-412e-9bfb-51bd34ac7787>
   PrefabRemaps:
     []
@@ -12950,6 +13212,25 @@
   ScriptTypes:
     "":
       {}
+- !<Image/57f5450a-14ee-4023-bb4d-856d8f32150a>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 1b9829c2-2e3f-4e31-914e-96d40f5a3909
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/580fd7e7-ff53-4439-ae70-92556c551724>
   PrefabRemaps:
     []
@@ -16224,6 +16505,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/7032ee67-b561-4aff-bd08-75993d20232b>
+  PrefabRemaps:
+    []
+  Name: NextArrow
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 25.000000, y: 25.000000, z: 25.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 39c21249-8bc2-4ced-bcd9-1aa481da97c3
 - !<ScriptComponent/70a603a7-5df4-4a75-8863-dee35867c4fd>
   PrefabRemaps:
     []
@@ -16259,7 +16555,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 28b4a3d9-470c-4eb5-943a-7f663ec11a64
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -16838,7 +17134,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> 8fce2bc3-0636-447d-9f7a-61ad36514952
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -17308,7 +17604,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> b784cb3e-c73a-4630-9a11-0b9f528efed8
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -17603,7 +17899,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 6bdba1f0-29f5-4e16-a13b-9e4b1e094fa5
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -17964,7 +18260,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 454025bb-12d4-4a2d-a56b-ce93491beda0
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -18280,7 +18576,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 1dadb5cf-3548-4547-8acc-4ca39d0bd3a7
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -18617,7 +18913,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 21262967-254c-4f84-b886-c2d68f48ea6c
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -20871,6 +21167,51 @@
     []
   Components:
     - !<own> 6a6f0b5f-77fa-45c2-a32a-4892637bbdeb
+- !<ScriptComponent/8d73d4a7-5749-47ff-a0d7-62ede795e4c3>
+  PrefabRemaps:
+    []
+  Name: RectangleButton
+  Enabled: true
+  ScriptAsset: !<reference> 173d7099-914c-4f24-ac1c-1b67a66ae138
+  ScriptInputsDefault:
+    _renderOrder: true
+    _inactive: true
+    _playAudio: true
+    _style: true
+    _hasShadow: true
+    _shadowPositionOffset: true
+    _toggleable: true
+    _defaultToOn: true
+    addCallbacks: true
+    triggerUpCallbacks: true
+    triggerDownCallbacks: true
+    onValueChangeCallbacks: true
+    onFinishedCallbacks: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _renderOrder: 0
+      _size: !<Vec3> {x: 5.000000, y: 3.000000, z: 3.000000}
+      _inactive: false
+      _playAudio: false
+      _style: PrimaryNeutral
+      _hasShadow: false
+      _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
+      _toggleable: false
+      _defaultToOn: false
+      addCallbacks: false
+      triggerUpCallbacks:
+        []
+      triggerDownCallbacks:
+        []
+      onValueChangeCallbacks:
+        []
+      onFinishedCallbacks:
+        []
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/8d8d9854-1721-486e-b45c-590f0db9d9d3>
   PrefabRemaps:
     []
@@ -22539,7 +22880,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> f0ad4f4b-f23f-49d9-a6c0-0a119a3e1129
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -22728,7 +23069,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> ca329858-811d-4bd0-b473-7293fd5a4a4b
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -22913,7 +23254,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> fc68d689-5f67-48d9-937e-f74798972d5b
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -23046,7 +23387,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> cd23ac06-a607-4842-9628-cf7889acfd7a
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -23187,7 +23528,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 8835148b-b705-4059-8af0-3b834f165f47
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -23337,7 +23678,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 2c3e9a7c-db15-4923-872a-643ac9438194
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -23436,7 +23777,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> 565f1219-351b-42e3-8156-dcbb467ff147
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -23810,6 +24151,25 @@
   ScriptTypes:
     "":
       {}
+- !<Image/a3a0fc3e-aa29-4c38-ae76-dcb599983dba>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 10
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 2d674efb-6a80-4189-a1bd-4e563f23997e
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/a3a57e00-6fad-413a-8a92-a272b106ade9>
   PrefabRemaps:
     []
@@ -24366,7 +24726,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 1cfc783b-cabf-411c-8e77-4b11a8f617b7
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -25065,7 +25425,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 9f5629c2-e60b-41a0-99a2-6f943419c639
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -27804,7 +28164,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 19654b3d-e1a6-45c5-ad6f-fd1ad70eca7d
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -28154,7 +28514,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> ec59cf79-8d37-41a5-b006-34b9feef8602
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -28501,7 +28861,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> faaf6777-af43-4159-9c63-5cb4c7a2ec91
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -28628,7 +28988,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 2d1b7ddb-a9e2-4d58-866b-5729aa5a5b45
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -29352,7 +29712,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 2e7c353b-1956-47fd-89fb-3aede17fc8d3
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -29486,7 +29846,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 4772e78f-62aa-45a6-a91e-34710716be53
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -29505,7 +29865,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 75b20b6e-2c1d-4088-9671-c6146d33602b
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -29868,7 +30228,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 56efa4c9-f28b-42f5-92f7-5a1b1b5506fc
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -30434,6 +30794,7 @@
     []
   Components:
     - !<own> bc7d74d9-b67b-4676-9500-c1eecece440e
+    - !<own> 57f5450a-14ee-4023-bb4d-856d8f32150a
 - !<SceneObject/c6437d13-356b-4249-8745-29e22d194594>
   PrefabRemaps:
     []
@@ -30451,6 +30812,87 @@
     - !<own> 9ec90dac-fa9b-4b63-a7ad-df0e98c6fea6
   Components:
     - !<own> f26640ce-3126-4d8b-bde7-b85903d58290
+- !<Text/c696164e-428c-40f0-900c-3b2a2f6818aa>
+  PrefabRemaps:
+    []
+  Name: Text
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Text: Text
+  Editable: false
+  ShowEditingPreview: true
+  TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
+  SizeToFit: false
+  FontSize: 80
+  Font: !<reference> 00000000-0000-0000-0000-000000000000
+  LayoutRect:
+    left: -7.500000
+    bottom: -2.250000
+    right: 7.500000
+    top: 2.250000
+  OverflowVertical: Overflow
+  OverflowHorizontal: Overflow
+  Fill: !<TextFill>
+    Mode: Solid
+    Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+    Texture: !<reference> 00000000-0000-0000-0000-000000000000
+    ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    TileCount: 5.000000
+    TileZone: Rect
+    TextureStretch: FitWidth
+  BlendMode: PremultipliedAlpha
+  Outline: !<OutlineSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Size: 0.250000
+  Dropshadow: !<DropshadowSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    OffsetX: 0.250000
+    OffsetY: 0.250000
+  Background: !<BackgroundSettings>
+    Enabled: false
+    Fill: !<TextFill>
+      Mode: Solid
+      Color: {x: 0.000000, y: 0.000000, z: 0.000000, w: 1.000000}
+      Texture: !<reference> 00000000-0000-0000-0000-000000000000
+      ColorTint: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      TileCount: 5.000000
+      TileZone: Rect
+      TextureStretch: FitWidth
+    Margins:
+      left: 0.000000
+      bottom: 0.000000
+      right: 0.000000
+      top: 0.000000
+    CornerRadius: 0.000000
+  AdvancedLayout: !<TextAdvancedLayout>
+    ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
+    LetterSpacing: 0.000000
+    LineSpacing: 1.000000
+    CapitalizationOverride: None
+  DepthTest: false
+  TwoSided: false
 - !<Skin/c6a71617-bec5-4be9-ba30-ccd2320ff3e4>
   PrefabRemaps:
     []
@@ -31816,7 +32258,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> 8b0f06a7-b7a3-40e2-884f-f5f0e24d1af0
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -31904,7 +32346,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 34714886-03e7-41b3-85b2-d7df359a13a8
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -32068,7 +32510,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> b931dc0c-c6ba-417f-bbaf-10f7888314c7
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -33891,6 +34333,7 @@
     []
   Components:
     - !<own> eefdbdd1-18c2-458c-b6e5-2a98c8c4f877
+    - !<own> 56c45fa2-573b-4e68-9623-92284054784d
 - !<SceneObject/db853ad2-6a73-4516-b80a-72caa01362ca>
   PrefabRemaps:
     []
@@ -34131,7 +34574,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> 82957b17-8b9f-410f-9cab-60f2737ff196
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -34945,7 +35388,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> c5adb3c5-6ec4-4b3c-9768-7b156fa3122a
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -35418,6 +35861,24 @@
     []
   Components:
     - !<own> 28cf3766-599c-4bd5-8505-2a92bf6606ed
+- !<ScriptComponent/e67b50c9-5757-40a9-ba85-3c387fabd6dc>
+  PrefabRemaps:
+    []
+  Name: PanelButtons
+  Enabled: true
+  ScriptAsset: !<reference> 3caf5378-440d-4ef4-b7f0-756a1baf8cb6
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      backButton: !<reference.SceneObject> b51edbc6-dcf3-4128-b841-2bf5f415cd98
+      nextButton: !<reference.SceneObject> 8785dfa3-7960-47cd-bd1c-ed6f73e04c42
+      repeatButton: !<reference.SceneObject> 110daedf-8a8d-4eac-9c66-a901669a694c
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e6dfa009-4f40-4702-b749-e508ef7aae5b>
   PrefabRemaps:
     []
@@ -35884,7 +36345,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 1611dc31-589c-40d5-a803-dcee0078c18d
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -36444,7 +36905,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 5f76b323-47fe-429d-9ade-5b2fa8d010d4
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -36702,7 +37163,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a1d8421b-d201-441a-b0a1-e3508c90684b
+    - !<reference> 2e539dd3-b9b2-47f8-96ba-a2c3edc91178
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -36853,7 +37314,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> cd4ef2c0-88d3-4837-86dc-5e4a7db4555e
+    - !<reference> 46afdcf1-fa24-450f-ab0d-71724b5a4568
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -37854,7 +38315,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> da0f37eb-0e3b-4f2f-bed3-42df956fc362
+    - !<reference> 40060bb4-1ccc-4479-bd69-d0ff545790eb
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -38015,7 +38476,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 946c55b2-66eb-478f-9332-bd218d6d516f
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -38392,7 +38853,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 48c64bea-bbc6-4210-9155-f34b02517572
+    - !<reference> 0d7c87d0-6b2f-42a4-8274-2778c3b9cd2d
   FlipX: false
   FlipY: false
   RotationAngle: 0
@@ -39160,7 +39621,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 83bf5ae5-9ad1-4232-a9b6-656b9916d351
+    - !<reference> 3d799dff-2a6f-4f79-b31e-069841c15298
   FlipX: false
   FlipY: false
   RotationAngle: 0

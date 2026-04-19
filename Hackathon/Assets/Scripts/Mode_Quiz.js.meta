@@ -26,7 +26,40 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    {}
+    feedbackPanel1: false
+    feedbackPanel10: false
+    feedbackPanel11: false
+    feedbackPanel12: false
+    feedbackPanel13: false
+    feedbackPanel14: false
+    feedbackPanel15: false
+    feedbackPanel2: false
+    feedbackPanel3: false
+    feedbackPanel4: false
+    feedbackPanel5: false
+    feedbackPanel6: false
+    feedbackPanel7: false
+    feedbackPanel8: false
+    feedbackPanel9: false
+    instructionsNextButton: false
+    questionPanel1: false
+    questionPanel10: false
+    questionPanel11: false
+    questionPanel12: false
+    questionPanel13: false
+    questionPanel14: false
+    questionPanel15: false
+    questionPanel2: false
+    questionPanel3: false
+    questionPanel4: false
+    questionPanel5: false
+    questionPanel6: false
+    questionPanel7: false
+    questionPanel8: false
+    questionPanel9: false
+    quizInstructions: false
+    quizResultsPanel: false
+    resultsScoreText: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -36,8 +69,40 @@
   Attachments:
     []
   DefaultScriptInputs:
-    -
-      {}
+    - quizInstructions: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel4: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel5: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel6: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel7: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel8: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel9: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel10: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel11: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel12: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel13: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel14: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      questionPanel15: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      quizResultsPanel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      resultsScoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      instructionsNextButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel1: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel2: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel3: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel4: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel5: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel6: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel7: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel8: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel9: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel10: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel11: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel12: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel13: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel14: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      feedbackPanel15: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}

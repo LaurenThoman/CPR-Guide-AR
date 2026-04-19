@@ -80,6 +80,16 @@ function switchMode(mode) {
 
     setBackVisible(true);
 
+    if (mode === "quiz") {
+        var kickQuizUi = script.createEvent("DelayedCallbackEvent");
+        kickQuizUi.bind(function() {
+            if (global.QuizMode && typeof global.QuizMode.reset === "function") {
+                global.QuizMode.reset();
+            }
+        });
+        kickQuizUi.reset(0.02);
+    }
+
     print("Mode switched to: " + mode);
     global.ModeController.onModeChanged(mode);
 }
