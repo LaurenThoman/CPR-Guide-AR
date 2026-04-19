@@ -1,0 +1,67 @@
+- !<AssetImportMetadata/611126a3-84b6-4eb8-9a8e-3d2d260fee05>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> fca576e1-86c0-4756-997f-8663af37720f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> fca576e1-86c0-4756-997f-8663af37720f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 2ded2f7a-3e7c-43e2-ac33-7577310ad9b3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/2ded2f7a-3e7c-43e2-ac33-7577310ad9b3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 8d6534a7-2842-4869-872e-f51487e3b7de
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bodyEnvironment: false
+    bridgeToPracticeMode: false
+    chestTargetOverride: false
+    debugPositions: false
+    enableLogging: false
+    xzRadiusCm: false
+    yHoverMaxCm: false
+    yHoverMinCm: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - bodyEnvironment: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      chestTargetOverride: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      xzRadiusCm: !<float> 0.000000
+      yHoverMaxCm: !<float> 0.000000
+      yHoverMinCm: !<float> 0.000000
+      bridgeToPracticeMode: true
+      enableLogging: true
+      debugPositions: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #F87171;\">CPRHandDetection — compression detection & BPM</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @input AssignableType bodyEnvironment {"hint":"The CPRBodyEnvironment script component on the scene"}'
+    - '// @input SceneObject chestTargetOverride {"hint":"Optional: drag a SceneObject here (e.g. a Sphere) to use it as the chest target. Takes precedence over bodyEnvironment."}'
+    - "// @input float xzRadiusCm {\"hint\":\"Horizontal radius (cm) around the chest target that counts as 'centered'. Increase for a larger sphere/mannequin.\"}"
+    - "// @input float yHoverMaxCm {\"hint\":\"Max cm the hand can hover ABOVE the chest target and still count as 'centered'.\"}"
+    - "// @input float yHoverMinCm {\"hint\":\"Max cm the hand can go BELOW the chest target and still count as 'centered'. Must fit a full compression (default -20).\"}"
+    - '// @input bool bridgeToPracticeMode = true {"hint":"When true, calls global.PracticeMode.registerCompression() on every compression so the Practice round counter + metronome react."}'
+    - // @input bool enableLogging
+    - '// @input bool debugPositions {"hint":"Print chest/hand positions once per second while logging is on. Useful for calibration."}'

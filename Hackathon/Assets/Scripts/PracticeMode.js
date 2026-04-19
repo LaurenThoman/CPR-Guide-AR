@@ -36,7 +36,7 @@ function start() {
             }
             try {
                 safeAudioStop(script.cprBeatAudio);
-                script.cprBeatAudio.volume = 0.175;
+                script.cprBeatAudio.volume = 0.075;
                 script.cprBeatAudio.play(-1);
                 print("PracticeMode: cprBeatAudio playing");
             } catch (e) {
