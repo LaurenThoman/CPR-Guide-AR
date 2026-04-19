@@ -1,6 +1,10 @@
 /**
  * CPR Signal Bus — shared state between detection and UI layers.
  * All values here match the team signal contract in Team-Plan.md.
+ *
+ * Also published to `global.CPRSignalBus` on module load so plain-JS scripts
+ * (PracticeMode.js, PracticeFeedbackAudio.js, etc.) can read the same values
+ * without needing to import the TS module.
  */
 export const CPRSignalBus = {
   currentBPM: 0,
@@ -20,3 +24,7 @@ export const CPRSignalBus = {
     }
   },
 };
+
+// Expose to plain JS at global.CPRSignalBus so PracticeFeedbackAudio.js etc.
+// can read the same live state without an import.
+(global as any).CPRSignalBus = CPRSignalBus;

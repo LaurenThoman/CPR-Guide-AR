@@ -21,12 +21,31 @@ var DEBUG_LOG = true;
 
 var PLAY_DELAY_SEC = 0.05;
 
-// --- Edit for local testing (later: call global.PracticeFeedbackAudio.setMetrics(...)) ---
+// --- Live metrics ---
+// Pulled each frame from global.CPRSignalBus (published by CPRSignalBus.ts)
+// when the CPR detection stack is attached. Fallback values below are used
+// only when the bus isn't loaded, so you can still test this script in
+// isolation or override manually via global.PracticeFeedbackAudio.setMetrics.
 // CompressionDepth: "tooShallow" | "good" | "tooDeep"
 var compressionDepth = "good";
 var currentBPM = 110;
 var handsCentered = true;
+/** When true, setMetrics() values win over the signal bus until the next call. */
+var manualOverride = false;
 // ---
+
+function syncFromSignalBus() {
+    if (manualOverride) {
+        return;
+    }
+    var bus = global.CPRSignalBus;
+    if (!bus) {
+        return;
+    }
+    compressionDepth = bus.compressionDepth;
+    currentBPM = bus.currentBPM;
+    handsCentered = !!bus.handsCentered;
+}
 
 var tHigh = 0;
 var tLow = 0;
@@ -192,6 +211,8 @@ updateEvent.bind(function() {
         return;
     }
 
+    syncFromSignalBus();
+
     var dt = getDeltaTime();
     cooldown = Math.max(0, cooldown - dt);
 
@@ -227,10 +248,16 @@ updateEvent.bind(function() {
 });
 
 global.PracticeFeedbackAudio = {
+    /** Manual override (testing). Stops the per-frame signal-bus sync until clearOverride() is called. */
     setMetrics: function(depth, bpm, centered) {
         compressionDepth = depth;
         currentBPM = bpm;
         handsCentered = !!centered;
+        manualOverride = true;
+    },
+    /** Resume pulling from global.CPRSignalBus each frame. */
+    clearOverride: function() {
+        manualOverride = false;
     },
     /** Call from Logger to verify audio path: global.PracticeFeedbackAudio.debugPlayShallow() */
     debugPlayShallow: function() {

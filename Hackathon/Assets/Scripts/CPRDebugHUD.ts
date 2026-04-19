@@ -43,7 +43,6 @@ export class CPRDebugHUD extends BaseScriptComponent {
 
     this.debugText.text =
       "BPM: " + bpm + "  Depth: " + depth + "\n" +
-      "Centered: " + centered + "  Compressions: " + this.compressionCount +
-      chestInfo;
+      "Centered: " + centered + "  Compressions: " + this.compressionCount;
   }
 }
